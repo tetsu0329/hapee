@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!empty($_SESSION['hapeeadmin'])){
+        echo "<script>window.location.replace('index.php')</script>";
+    }
+  include("connection/conn.php");
+?>
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -28,6 +35,7 @@
 	}
 </style>
 <body>
+<form action="" method="POST">
 	<div class="w3-container w3-content content" style="max-width:800px">
     <h2 class="w3-wide title">&nbsp;Admin | LOGIN</h2>
     <br>
@@ -36,10 +44,31 @@
        		<p><input class="w3-input w3-border w3-round-large" name="uname" type="username" placeholder="Username"></p>
 			<p><input class="w3-input w3-border w3-round-large" name="pword" type="password" placeholder="Password"></p>
        </form>
-       <br><br><center><button class="w3-button w3-large buttonstyle w3-center">LOGIN</button></center>
+       <br><br><center><input type="submit" name="loginbutton" class="w3-button w3-large buttonstyle w3-center" value= "LOGIN"></center>
       </div>
     </div>
   </div>
-  
+  </fprm>
 </body>
 </html>
+<?php
+    if(isset($_POST['loginbutton']))
+    {
+
+        $username = $_POST['uname'];
+        $password = $_POST['pword'];
+		$sqllogin = mysqli_query($conn,"SELECT * FROM admintable WHERE adminUsername='$username' AND adminPassword='$password'");
+		
+        $rowlog=mysqli_fetch_assoc($sqllogin);
+        if($rowlog['adminStatus']=='Active')
+        {
+			$_SESSION['hapeeadmin']=$rowlog['id'];
+			$_SESSION['adminName']=$rowlog['adminName'];
+			echo "<script>window.location.replace('index.php')</script>";
+        }
+        else
+        {
+        echo "<script>alert('Username or Password is incorrect')</script>";
+        }
+    }
+?>

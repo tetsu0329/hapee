@@ -1,3 +1,11 @@
+<?php
+session_start();
+  include('connection/controller.php');
+	include('connection/backendconnection.php');
+	if(empty($_SESSION['hapeeadmin'])){
+        echo "<script>window.location.replace('login.php')</script>";
+    }
+?>
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">

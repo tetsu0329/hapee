@@ -122,7 +122,7 @@
 				<tr>
 				  <th class="name">Name</th>
 				  <th><center>Status</center></th>
-				  <th><center>Total Purchase</center></th>
+				  <th><center>Mobile Number</center></th>
 				  <th><center>Actions</center></th>
 				</tr>
 				<tr">
