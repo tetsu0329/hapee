@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>User Accounts</title>
+	<title>Inquiry</title>
 </head>
 <style type="text/css">
 
@@ -55,6 +55,7 @@
 
 	.details{
 		padding: 3%;
+		line-height: 2;
 	}
 
 	.buttonstyle{
@@ -66,96 +67,106 @@
     	border-left: 5px solid #23a393;
     	border-right: 5px solid #23a393;
 	}
+	textarea{
+		width: 100%;
+		border-radius: 4px;
+   		resize: vertical;
+	}
+	.messagebody{
+		text-align: justify;
+		font-size: 14px !important;
+		padding: 10px;
+	}
 </style>
 <body>
 
 	<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 		<div class="content">
 
-			<h2 class="title">&nbsp;User Accounts</h2><br>
+			<h2 class="title">&nbsp;Inquiry</h2><br>
 			<br>
 			
 			<div class="w3-responsive">
-				<div class="topbtn">
-					<div class="w3-show-inline-block w3-right">
-						<div class="w3-bar">
-						  <button onclick="document.getElementById('add').style.display='block'" class="w3-button w3-large buttonstyle">ADD</button>
-						  <div id="add" class="w3-modal">
-						    <div class="w3-modal-content">
-						      <div class="w3-container">
-						        <span onclick="document.getElementById('add').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-						        <div class="w3-container">
-						        	<h5 class="title">&nbsp;Add User</h5>
-						        	<hr>
-						        	<div class="details">
-					        		<h6 class="titlesmall w3-center">&nbsp;<b style="color: #23a393;">Personal Information</b><br><br>
-					        		<form>
-									  <p><input class="w3-input w3-border w3-round-large" name="lname" type="text" placeholder="Lastname"></p>
-									  <p><input class="w3-input w3-border w3-round-large" name="fname" type="text" placeholder="Firstname"></p>
-									  <p><input class="w3-input w3-border w3-round-large" name="mobnum" type="text" placeholder="Mobile Number"></p>
-									  <p><input class="w3-input w3-border w3-round-large" name="email" type="text" placeholder="Email Address"></p>
-									<br>
-									<h6 class="titlesmall w3-center">&nbsp;<b style="color: #23a393;">Billing Information</b><br><br>
-									  <p><input class="w3-input w3-border w3-round-large" name="address" type="text" placeholder="House number, building, street, subdivision..."></p>
-									  <p><input class="w3-input w3-border w3-round-large" name="brgy" type="text" placeholder="Barangay"></p>
-									  <p><input class="w3-input w3-border w3-round-large" name="cuty" type="text" placeholder="City"></p>
-									<br>
-									<h6 class="titlesmall w3-center">&nbsp;<b style="color: #23a393;">Login Information</b><br><br>
-									  <p><input class="w3-input w3-border w3-round-large" name="pword" type="password" placeholder="House number, Street, Subdivision..."></p>
-									  <p><input class="w3-input w3-border w3-round-large" name="cpword" type="confirmpassword" placeholder="Barangay"></p>
-
-									 <br><br>
-									
-									</form>
-									<button class="w3-button w3-large buttonstyle">SUBMIT</button>
-					        	</div>
-						        </div>
-						      </div>
-						    </div>
-						  </div>
-						  <button class="w3-button w3-large buttonstyle">DELETE</button><br><br>
-						</div>
-					</div>
-				</div>
 				
 				<table class="w3-table w3-bordered w3-hoverable">
 				<tr>
-				  <th class="name">Name</th>
-				  <th><center>Status</center></th>
-				  <th><center>Total Purchase</center></th>
+				  <th><center>Inquiry ID</center></th>
+				  <th class="name">Sender</th>
+				  <th><center>Message Status</center></th>
 				  <th><center>Actions</center></th>
 				</tr>
 				<tr">
-				  <td>Jill</td>
-				  <td><center>Lorem Status</center></td>
-				  <td><center>No Purchase</center></td>
-				  <td>
-				  	<center>
+				  <td><center>001</center></td>
+				  <td>Lorem Sender</td>
+				  <td><center>Read</center></td>
+				  <td><center>
 				  	  <button onclick="document.getElementById('view').style.display='block'" class="w3-button">VIEW</button>
 					  <div id="view" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">
 					        <span onclick="document.getElementById('view').style.display='none'" class="w3-button w3-display-topright">&times;</span>
 					        <div class="w3-container">
-					        	<h5 class="title w3-left">&nbsp;Lorem ipsum name</h5><br>
+					        	<h5 class="title w3-left">&nbsp;View Inquiry</h5><br>
 					        	<hr>
 					        	<div class="details">
-					        		<h6 class="titlesmall">&nbsp;<b style="color: #23a393;">Mobile Number:</b>&nbsp;<span>123456789</span></h6>
-					        		<h6 class="titlesmall">&nbsp;<b style="color: #23a393;">Email Address:</b>&nbsp;<span>emailaddress@gmail.com</span></h6>
-					        		<h6 class="titlesmall">&nbsp;<b style="color: #23a393;">Address</b>:&nbsp;<span>Blk 123 Phase 123 Abc Street Efg City</span></h6>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Sender Name:</b>&nbsp;<span>Lorem Sender</span></h6><br><br>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Sender Email:</b>&nbsp;<span>emailaddress@gmail.com</span></h6><br><br>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Message Subject:</b>&nbsp;<span>Lorem subject</span></h6><br><br>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Message Date:</b>&nbsp;<span>January 1, 2000</span></h6><br><br>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Message Body:</b>&nbsp;</h6>
+					        		<h6 class="w3-left messagebody">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut.</h6>
 					        	</div>
 					        </div>
 					      </div>
 					    </div>
 					  </div>
 
-					  <button onclick="document.getElementById('edit').style.display='block'" class="w3-button">EDIT</button>
+					  <button onclick="document.getElementById('edit').style.display='block'" class="w3-button">REPLY</button>
 					  <div id="edit" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">
 					        <span onclick="document.getElementById('edit').style.display='none'" class="w3-button w3-display-topright">&times;</span>
 					        <div class="w3-container">
-					        	<h5 class="title w3-left">&nbsp;Edit User Information</h5><br>
+					        	<h5 class="title w3-left">&nbsp;Reply Inquiry</h5><br>
+					        	<hr>
+					        	<div class="details">
+					        		<div class="details">
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Recipient:</b>&nbsp;<span>emailaddress@gmail.com</span></h6><br><br>
+					        		 <textarea style="height: 200px; resize: none;" placeholder="Type your message here...."></textarea>
+					        	</div>
+					        		<!-- <h6 class="titlesmall w3-center">&nbsp;<b style="color: #23a393;">Personal Information</b><br><br>
+					        		<form>
+									  <p><input class="w3-input w3-border w3-round-large" name="lname" type="text" placeholder="Lastname"></p>
+									  <p><input class="w3-input w3-border w3-round-large" name="fname" type="text" placeholder="Firstname"></p>
+									  <p><input class="w3-input w3-border w3-round-large" name="mobnum" type="text" placeholder="Mobile Number"></p>
+									  <p><input class="w3-input w3-border w3-round-large" name="email" type="text" placeholder="Email Address"></p>
+									<br>
+									<h6 class="titlesmall w3-center">&nbsp;<b style="color: #23a393;">Billing Information</b><br><br>
+									  <p><input class="w3-input w3-border w3-round-large" name="address" type="text" placeholder="House number, building, street, subdivision..."></p>
+									  <p><input class="w3-input w3-border w3-round-large" name="brgy" type="text" placeholder="Barangay"></p>
+									  <p><input class="w3-input w3-border w3-round-large" name="cuty" type="text" placeholder="City"></p>
+									<br>
+									<h6 class="titlesmall w3-center">&nbsp;<b style="color: #23a393;">Login Information</b><br><br>
+									  <p><input class="w3-input w3-border w3-round-large" name="pword" type="password" placeholder="House number, Street, Subdivision..."></p>
+									  <p><input class="w3-input w3-border w3-round-large" name="cpword" type="confirmpassword" placeholder="Barangay"></p>
+
+									 <br><br>
+									
+									</form> -->
+									<button class="w3-button w3-large buttonstyle">REPLY</button>
+					        	</div>
+					        </div>
+					      </div>
+					    </div>
+					  </div>
+
+					  <button onclick="document.getElementById('delete').style.display='block'" class="w3-button">DELETE</button>
+					  <div id="delete" class="w3-modal">
+					    <div class="w3-modal-content">
+					      <div class="w3-container">
+					        <span onclick="document.getElementById('delete').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+					        <div class="w3-container">
+					        	<h5 class="title">&nbsp;Edit User Information</h5>
 					        	<hr>
 					        	<div class="details">
 					        		<h6 class="titlesmall w3-center">&nbsp;<b style="color: #23a393;">Personal Information</b><br><br>
@@ -183,8 +194,9 @@
 					      </div>
 					    </div>
 					  </div>
-					</center>
+
 				  </td>
+				</center>
 				</tr>
 				</table>
 				</div>
