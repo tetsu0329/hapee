@@ -100,7 +100,7 @@
 				  <td>Lorem Sender</td>
 				  <td><center>Read</center></td>
 				  <td><center>
-				  	  <button onclick="document.getElementById('view').style.display='block'" class="w3-button">VIEW</button>
+				  	  <button onclick="document.getElementById('view').style.display='block'" class="w3-button buttonstyle"><img src="img/view.png" width="20px;"></button>
 					  <div id="view" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">
@@ -121,7 +121,7 @@
 					    </div>
 					  </div>
 
-					  <button onclick="document.getElementById('edit').style.display='block'" class="w3-button">REPLY</button>
+					  <button onclick="document.getElementById('edit').style.display='block'" class="w3-button buttonstyle"><img src="img/reply.png" width="20px;"></button>
 					  <div id="edit" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">
@@ -160,7 +160,7 @@
 					    </div>
 					  </div>
 
-					  <button onclick="document.getElementById('delete').style.display='block'" class="w3-button">DELETE</button>
+					  <button onclick="document.getElementById('delete').style.display='block'" class="w3-button buttonstyle"><img src="img/delete.png" width="20px;"></button>
 					  <div id="delete" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">

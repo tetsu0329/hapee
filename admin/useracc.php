@@ -79,7 +79,7 @@
 				<div class="topbtn">
 					<div class="w3-show-inline-block w3-right">
 						<div class="w3-bar">
-						  <button onclick="document.getElementById('add').style.display='block'" class="w3-button w3-large buttonstyle">ADD</button>
+						  <button onclick="document.getElementById('add').style.display='block'" class="w3-button w3-large buttonstyle"><img src="img/add.png" width="20px;"></button>
 						  <div id="add" class="w3-modal">
 						    <div class="w3-modal-content">
 						      <div class="w3-container">
@@ -113,7 +113,7 @@
 						      </div>
 						    </div>
 						  </div>
-						  <button class="w3-button w3-large buttonstyle">DELETE</button><br><br>
+						  <button class="w3-button w3-large buttonstyle"><img src="img/delete.png" width="20px;"></button><br><br>
 						</div>
 					</div>
 				</div>
@@ -131,7 +131,7 @@
 				  <td><center>No Purchase</center></td>
 				  <td>
 				  	<center>
-				  	  <button onclick="document.getElementById('view').style.display='block'" class="w3-button">VIEW</button>
+				  	  <button onclick="document.getElementById('view').style.display='block'" class="w3-button buttonstyle"><img src="img/view.png" width="20px;"></button>
 					  <div id="view" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">
@@ -149,7 +149,7 @@
 					    </div>
 					  </div>
 
-					  <button onclick="document.getElementById('edit').style.display='block'" class="w3-button">EDIT</button>
+					  <button onclick="document.getElementById('edit').style.display='block'" class="w3-button buttonstyle"><img src="img/edit.png" width="20px;"></button>
 					  <div id="edit" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">

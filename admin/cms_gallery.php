@@ -68,7 +68,7 @@
       <div class="topbtn">
           <div class="w3-show-inline-block w3-right">
             <div class="w3-bar">
-              <button onclick="document.getElementById('add').style.display='block'" class="w3-button w3-large buttonstyle">ADD</button>
+              <button onclick="document.getElementById('add').style.display='block'" class="w3-button w3-large buttonstyle"><img src="img/add.png" width="20px;"></button>
               <div id="add" class="w3-modal">
                 <div class="w3-modal-content">
                   <div class="w3-container">
@@ -102,7 +102,7 @@
                   </div>
                 </div>
               </div>
-              <button class="w3-button w3-large buttonstyle">DELETE</button><br><br>
+              <button class="w3-button w3-large buttonstyle"><img src="img/delete.png" width="20px;"></button><br><br>
             </div>
           </div>
         </div>
@@ -138,40 +138,40 @@
               </div>
             </div>
         </div>
+
+        <div class="w3-quarter">
+            <div class="w3-container status">
+              <div class="w3-center">
+                <img src="img/sample.jpg" class="sliderimg" >
+              </div>
+            </div>
+        </div>
+
+        <div class="w3-quarter">
+            <div class="w3-container status">
+              <div class="w3-center">
+                <img src="img/sample.jpg" class="sliderimg" >
+              </div>
+            </div>
+        </div>
+
+        <div class="w3-quarter">
+            <div class="w3-container status">
+              <div class="w3-center">
+                <img src="img/sample.jpg" class="sliderimg" >
+              </div>
+            </div>
+        </div>
+
+        <div class="w3-quarter">
+            <div class="w3-container status">
+              <div class="w3-center">
+                <img src="img/sample.jpg" class="sliderimg" >
+              </div>
+            </div>
+        </div>
       </div>
 
-      <div class="w3-quarter">
-            <div class="w3-container status">
-              <div class="w3-center">
-                <img src="img/sample.jpg" class="sliderimg" >
-              </div>
-            </div>
-        </div>
-
-        <div class="w3-quarter">
-            <div class="w3-container status">
-              <div class="w3-center">
-                <img src="img/sample.jpg" class="sliderimg" >
-              </div>
-            </div>
-        </div>
-
-        <div class="w3-quarter">
-            <div class="w3-container status">
-              <div class="w3-center">
-                <img src="img/sample.jpg" class="sliderimg" >
-              </div>
-            </div>
-        </div>
-
-        <div class="w3-quarter">
-            <div class="w3-container status">
-              <div class="w3-center">
-                <img src="img/sample.jpg" class="sliderimg" >
-              </div>
-            </div>
-        </div>
-      </div>
 
         <br><center><button class="w3-button w3-large buttonstyle w3-center">SAVE</button><br>
 </body>

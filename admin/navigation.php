@@ -73,7 +73,7 @@ a.panel:hover {
       <!-- <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px"> -->
     </div>
     <div class="w3-col s12 m12 l12 w3-bar">
-      <p class="w3-center">HAPEE CASSY LOGO</p>
+      <p class="w3-center"><img src="img/cropped.png" width="100%;"></p>
     </div>
   </div>
 
@@ -81,16 +81,16 @@ a.panel:hover {
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="index.php" class="w3-bar-item w3-button links">Dashboard</a>
+    <a href="inquiry.php" class="w3-bar-item w3-button links">Inquiry</a>
     <a href="useracc.php" class="w3-bar-item w3-button links">User Accounts</a>
     <a href="#" class="w3-bar-item accordion links">&nbsp;Content Management Sysytem</a>
-    <div class="panel">
-      <a href="cms_slider.php" class="w3-bar-item links">Slider Images</a>
-      <a href="cms_about.php" class="w3-bar-item links">About Us</a>
-      <a href="cms_contact.php" class="w3-bar-item links">Contact Us</a>
-      <a href="cms_gallery.php" class="w3-bar-item links">Gallery</a>
-      <a href="cms_products.php" class="w3-bar-item links">Products</a>
-   </div>
-   <a href="inquiry.php" class="w3-bar-item w3-button links">Inquiry</a>
+      <div class="panel">
+        <a href="cms_slider.php" class="w3-bar-item links">Slider Images</a>
+        <a href="cms_about.php" class="w3-bar-item links">About Us</a>
+        <a href="cms_contact.php" class="w3-bar-item links">Contact Us</a>
+        <a href="cms_gallery.php" class="w3-bar-item links">Gallery</a>
+        <a href="cms_products.php" class="w3-bar-item links">Products</a>
+    </div>
 </nav>
 
 
