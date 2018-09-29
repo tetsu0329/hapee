@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>About Us</title>
+	<title>Hapee Cassy | Register</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -13,7 +13,7 @@
       border-bottom: 8px solid #23a393;
       letter-spacing: 10px;
       text-transform: capitalize;
-      padding-bottom: 2%;
+      padding-bottom: 2%:;
     }
 
     .subtitle{
@@ -23,6 +23,11 @@
       padding-bottom: 2%;
     }
 
+    .subtitle2{
+   	  border-left: 8px solid #23a393;
+      letter-spacing: 10px;
+      text-transform: capitalize;
+    }
 	.titlesmall{
 	      letter-spacing: 1px;
 	      font-size: 14px;
@@ -82,12 +87,26 @@
 
 	 .story p {
 	 	line-height: 2;
-	 	text-align: justify;
 	 }
 
 	 .pagetitle{
 	 	padding-top: 100px;
 	 }
+
+	 .contactlink{
+	 	text-decoration: none;
+	 	color: #23a393;
+	 }
+
+	 input, textarea{
+	 	background: #edffed;
+		resize: none;
+		padding:8px;
+		display:block;
+		border:none;
+		border-bottom:1px solid #ccc;
+		width:100%
+	}
 	@media (min-width:601px){
 		.twocont{
 			width:49.99999%;
@@ -105,14 +124,34 @@
 <!-- title -->
 
 	<div class="container">
-		<div class="pagetitle"><h6 class="subtitle">&nbsp;About Us</h6></div>
+		<div class="pagetitle"><h6 class="subtitle">&nbsp;Register</h6></div>
 	</div>
 	<div class="ourstory">
 		<div class="container">
 			<div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
 	        <div class=" story">
 	        	<center><img src="img/cropped.png" width="50%;"></center>
-		    	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+	        	<h6 class="subtitle2">&nbsp;Personal Information</h6>
+		    	<p><input type="text" name="lname" placeholder="Lastname"></p>
+		    	<p><input type="text" name="fname" placeholder="Firstname"></p>
+		    	<p><input type="number" name="mobnum" placeholder="Mobile Number"></p>
+		    	<p><input type="text" name="email" placeholder="Email Address"></p>
+		    	<br>
+		    	<h6 class="subtitle2">&nbsp;Billing Information</h6>
+		    	<p><input type="text" name="address" placeholder="House number, building, street, subdivision"></p>
+		    	<p><input type="text" name="city" placeholder="City"></p>
+		    	<p><input type="number" name="brgy" placeholder="Barangay"></p>
+		    	<p><input type="text" name="email" placeholder="Email Address"></p>
+		    	<br>
+		    	<h6 class="subtitle2">&nbsp;Login Information</h6>
+		    	<p><input type="text" name="pword" placeholder="Password"></p>
+		    	<p><input type="text" name="cpword" placeholder="Confirm Password"></p>
+		    	<br>
+		    	<center>
+		    		<button class="buttonstyle">REGISTER</button>
+		    		<p>Already have an account?<b>&nbsp;<a href="login.php" class="contactlink">Sign in here!</a></p>
+		    	</center>
+		    	
 	        </div>
 
 			</div>
