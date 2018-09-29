@@ -95,12 +95,20 @@
 				  <th><center>Message Status</center></th>
 				  <th><center>Actions</center></th>
 				</tr>
-				<tr">
-				  <td><center>001</center></td>
-				  <td>Lorem Sender</td>
-				  <td><center>Read</center></td>
+				<tr>
+				<?php
+            while($rows=mysqli_fetch_assoc($sqlinquiry))
+            {
+				?>
+				  <td><center>00-<?php echo $rows['id'] ?></center></td>
+				  <td><?php echo $rows['customerName'] ?></td>
+				  <td><center><?php echo $rows['messageStatus'] ?></center></td>
 				  <td><center>
+<<<<<<< HEAD
 				  	  <button onclick="document.getElementById('view').style.display='block'" class="w3-button buttonstyle"><img src="img/view.png" width="20px;"></button>
+=======
+						<a href="?View=<?php echo $rows['id']?>"><button class="w3-button">VIEW</button></a>
+>>>>>>> cf5ccf77869a77f871a10254f3108d43b765ce2f
 					  <div id="view" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">
@@ -108,18 +116,31 @@
 					        <div class="w3-container">
 					        	<h5 class="title w3-left">&nbsp;View Inquiry</h5><br>
 					        	<hr>
+										<?php
+										if(isset($_GET['View'])){
+											$messageID = $_GET['View'];
+											$sqlview = mysqli_query($conn,"SELECT * FROM inquirytable WHERE id = $messageID");
+												while($rows2=mysqli_fetch_assoc($sqlview)){
+										?>
 					        	<div class="details">
-					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Sender Name:</b>&nbsp;<span>Lorem Sender</span></h6><br><br>
-					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Sender Email:</b>&nbsp;<span>emailaddress@gmail.com</span></h6><br><br>
-					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Message Subject:</b>&nbsp;<span>Lorem subject</span></h6><br><br>
-					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Message Date:</b>&nbsp;<span>January 1, 2000</span></h6><br><br>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Sender Name:</b>&nbsp;<span><?php echo $rows['customerName'] ?></span></h6><br><br>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Sender Email:</b>&nbsp;<span><?php echo $rows['customerEmail'] ?></span></h6><br><br>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Message Subject:</b>&nbsp;<span><?php echo $rows['messageSubject'] ?></span></h6><br><br>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Message Date:</b>&nbsp;<span><?php echo $rows['messageDate'] ?></span></h6><br><br>
 					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Message Body:</b>&nbsp;</h6>
-					        		<h6 class="w3-left messagebody">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut.</h6>
+					        		<h6 class="w3-left messagebody"><?php echo $rows['messageBody'] ?></h6>
 					        	</div>
+										<?php
+												}
+											}
+										?>
 					        </div>
 					      </div>
 					    </div>
 					  </div>
+						<?php
+						}
+						?>
 
 					  <button onclick="document.getElementById('edit').style.display='block'" class="w3-button buttonstyle"><img src="img/reply.png" width="20px;"></button>
 					  <div id="edit" class="w3-modal">
@@ -203,3 +224,12 @@
 		</div>
 </body>
 </html>
+<?php
+	if(isset($_GET['View'])){
+		$messageID = $_GET['View'];
+		echo "<script> var view_modal = document.getElementById('view'); </script>";
+		echo "<script> view_modal.style.display = 'block' </script>";
+		$result = mysqli_query($conn,"UPDATE inquirytable SET messageStatus = 'Read' WHERE id = $messageID")
+            or die ("failed to query database". mysqli_error());
+	}
+?>
