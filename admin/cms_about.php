@@ -29,7 +29,7 @@
       letter-spacing: 10px;
       text-transform: capitalize;
     }
-    .titlesmall{
+  .titlesmall{
       letter-spacing: 1px;
       font-size: 14px;
   }
