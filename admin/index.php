@@ -48,7 +48,7 @@
 			      <div class="w3-container status a">
 			        <div class="w3-center">
 			          <h1 class="count"><?php echo $inquirycount; ?></h1>
-			          <h4>INQUIRY</h4>
+			          <h4>MESSAGE</h4>
 			        </div>
 			      </div>
 			    </div>
@@ -57,7 +57,7 @@
 			      <div class="w3-container status b">
 			        <div class="w3-center">
 			          <h1 class="count">485</h1>
-			          <h4>ORDERS</h4>
+			          <h4>PRODUCTS</h4>
 			        </div>
 			      </div>
 			    </div>
@@ -66,7 +66,7 @@
 			      <div class="w3-container status a">
 			        <div class="w3-center">
 			          <h1 class="count">5</h1>
-			          <h4>USERS</h4>
+			          <h4>ORDERS</h4>
 			        </div>
 			      </div>
 			    </div>
@@ -75,7 +75,7 @@
 			      <div class="w3-container status b">
 			        <div class="w3-center">
 			          <h1 class="count">35</h1>
-			          <h4>PRODUCTS</h4>
+			          <h4>ACCOUNTS</h4>
 			        </div>
 			      </div>
 			    </div>

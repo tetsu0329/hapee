@@ -104,11 +104,7 @@
 				  <td><?php echo $rows['customerName'] ?></td>
 				  <td><center><?php echo $rows['messageStatus'] ?></center></td>
 				  <td><center>
-<<<<<<< HEAD
-				  	  <button onclick="document.getElementById('view').style.display='block'" class="w3-button buttonstyle"><img src="img/view.png" width="20px;"></button>
-=======
 						<a href="?View=<?php echo $rows['id']?>"><button class="w3-button">VIEW</button></a>
->>>>>>> cf5ccf77869a77f871a10254f3108d43b765ce2f
 					  <div id="view" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">

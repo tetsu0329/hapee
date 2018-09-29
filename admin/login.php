@@ -3,7 +3,7 @@
     if(!empty($_SESSION['hapeeadmin'])){
         echo "<script>window.location.replace('index.php')</script>";
     }
-  include("connection/conn.php");
+  include("connection/controller.php");
 ?>
 <!DOCTYPE html>
 <html>
