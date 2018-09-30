@@ -132,10 +132,12 @@
               </div>
             </div>
           </div>
+
       </div>
+      <center><input type="submit" name="updatebtn" class="w3-button w3-large buttonstyle w3-center" value="SAVE">
     </div>
   </div>
-        <br><center><input type="submit" name="updatebtn" class="w3-button w3-large buttonstyle w3-center" value="SAVE"><br>
+        
   </form>
   <?php
     }

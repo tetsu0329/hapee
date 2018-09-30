@@ -41,6 +41,9 @@
     	letter-spacing: 1px;
     	font-size: 14px;
 	}
+	table{
+		background: #fff;
+	}
 	th{
 		background: #99ddcc;
 		text-transform: uppercase;
@@ -117,7 +120,7 @@
 						</div>
 					</div>
 				</div>
-				
+				<br><br><br>
 				<table class="w3-table w3-bordered w3-hoverable">
 				<tr>
 				  <th class="name">Name</th>

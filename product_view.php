@@ -99,7 +99,7 @@
 
 	  .contact{
 	 	background: #23a393;
-	 }
+	 	padding-bottom: 10%;	 }
 
 	blockquote{
 	  border-left: 8px solid #23a393;
