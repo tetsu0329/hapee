@@ -98,6 +98,7 @@
 		.fourcont{
 			width:24.99999%;
 		}
+	}
 </style>
 <body>
 <div class="wrapper">
@@ -111,8 +112,15 @@
 		<div class="container">
 			<div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
 	        <div class=" story">
-	        	<center><img src="img/cropped.png" width="50%;"></center>
-		    	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+			<?php
+                $aboutsql = mysqli_query($conn, "SELECT * FROM abouttable WHERE id=1");
+                while($about = mysqli_fetch_assoc($aboutsql)){
+            ?>
+	        <center><img src="img/cropped.png" width="50%;"></center>
+		    <p><?php echo $about['content'] ?></p>
+			<?php
+				}
+			?>
 	        </div>
 
 			</div>

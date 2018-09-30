@@ -134,18 +134,30 @@ a.panel:hover {
 	    <button class="dropbtn">Products</button>
 	    </a>
 	    <div class="dropdown-content">
-	      <a href="?Category=Chocolate">Chocolate</a>
-	      <a href="?Category=Chips">Chips</a>
-	      <a href="?Category=Pastry">Pastry</a>
-	      <a href="products.php">See All</a>
+	      <a href="products.php?Category=Chocolate">Chocolate</a>
+	      <a href="products.php?Category=Chips">Chips</a>
+	      <a href="products.php?Category=Pastry">Pastry</a>
+	      <a href="products.php">All Products</a>
 	    </div>
   	</div>
       <a href="about.php" class="w3-bar-item w3-button">About Us</a>
       <a href="contact.php" class="w3-bar-item w3-button">Contact Us</a>
       <a href="gallery.php" class="w3-bar-item w3-button">Gallery</a>
        <a href="#" class="w3-bar-item w3-button isDisabled">|</a>
+       <?php
+        if(empty($_SESSION['cname'])){
+    ?>
       <a href="login.php" class="w3-bar-item w3-button">Login</a>
       <a href="register.php" class="w3-bar-item w3-button">Register</a>
+        <?php
+            }
+            else{
+        ?>
+        <a href="#" class="w3-bar-item w3-button"><strong>Welcome!</strong> <?php echo $_SESSION['cname'] ?></a>
+        <?php
+            }
+        ?>
+
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 

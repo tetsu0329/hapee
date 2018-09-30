@@ -184,7 +184,7 @@
 							}
 						}
 						?>
-					  <button onclick="document.getElementById('delete').style.display='block'" class="w3-button buttonstyle"><img src="img/delete.png" width="20px;"></button>
+					  <a onclick='javascript:confirmationDelete(this);return false;' href="?DeleteID=<?php echo $rows['id'] ?>"><button class="w3-button buttonstyle"><img src="img/delete.png" width="20px;"></button></a>
 					  <div id="delete" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">
@@ -227,6 +227,14 @@
 				</table>
 				</div>
 		</div>
+		<script>
+		function confirmationDelete(anchor)
+		{
+			var conf = confirm('Are you sure want to delete this record?');
+			if(conf)
+					window.location=anchor.attr("href");
+		}
+		</script>
 </body>
 </html>
 <?php
@@ -241,5 +249,13 @@
 		$id = $_GET['ReplyID'];
 		echo "<script> var reply_modal = document.getElementById('edit'); </script>";
 		echo "<script> reply_modal.style.display = 'block' </script>";
+	}
+	if(isset($_GET['DeleteID'])){
+		$messageID = $_GET['DeleteID'];
+		$query = mysqli_query($conn,"DELETE FROM inquirytable WHERE id = $messageID")
+			 or die ("failed to query database". mysqli_error());
+			 echo"<script>
+			 alert('Deleted Succesfully');
+			 window.location.replace('inquiry.php');</script>";
 	}
 ?>

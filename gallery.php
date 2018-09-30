@@ -95,21 +95,17 @@
 	<div class="container">
 		<div class="pagetitle"><h6 class="subtitle">&nbsp;Gallery</h6></div>
 		<!-- gallery -->
+		<?php 
+          $query = mysqli_query($conn, "SELECT * FROM gallerytable");
+					while($rows=mysqli_fetch_assoc($query)){
+				
+				?>
 		<div class="threecont" style="margin-top: 10px;">
-          <img src="img/tall.jpg" style="width:100%">
+          <img src="<?php echo substr($rows['photo'],3) ?>" style="width:100%">
          </div>
-
-         <div class="threecont" style="margin-top: 10px;">
-          <img src="img/tall.jpg" style="width:100%">
-         </div>
-
-         <div class="threecont" style="margin-top: 10px;">
-          <img src="img/tall.jpg" style="width:100%">
-         </div>
-
-         <div class="threecont" style="margin-top: 10px;">
-          <img src="img/tall.jpg" style="width:100%">
-         </div>
+		 <?php
+					}
+		 ?>
 	</div>
 
 
@@ -121,3 +117,6 @@
 </body>
 </html>
 <?php include("footer.php");?>
+<?php
+
+?>

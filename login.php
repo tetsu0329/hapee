@@ -112,6 +112,7 @@
 		.fourcont{
 			width:24.99999%;
 		}
+	}
 </style>
 <body>
 <div class="wrapper">
@@ -122,15 +123,17 @@
 		<div class="pagetitle"><h6 class="subtitle">&nbsp;Login</h6></div>
 	</div>
 	<div class="ourstory">
+	<form action="" method="POST">
 		<div class="container">
 			<div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
 	        <div class=" story">
 	        	<center><img src="img/cropped.png" width="50%;"></center>
-		    	<p><input type="text" name="uname" placeholder="Username"></p>
-		    	<p><input type="text" name="pwrod" placeholder="Password"></p>
+		    	<p><input type="text" name="uname" placeholder="Email"></p>
+		    	<p><input type="text" name="pword" placeholder="Password"></p>
+				<h6 id="incorrect" style="display:none">*Incorrect username or password</h6>
 		    	<br>
 		    	<center>
-		    		<button class="buttonstyle">LOGIN</button>
+		    		<input type="submit" class="buttonstyle" value="LOGIN" name="loginbtn">
 		    		<p>Still don't have an account?<b>&nbsp;<a href="register.php" class="contactlink">Register here!</a></p>
 		    	</center>
 		    	
@@ -138,6 +141,7 @@
 
 			</div>
 		</div>
+	</form>
 	</div>
 
 
@@ -149,3 +153,28 @@
 </body>
 </html>
 <?php include("footer.php");?>
+<?php
+if(isset($_POST['loginbtn'])){
+    $uname = $_POST['uname'];
+    $pword = $_POST['pword'];
+
+    $result = mysqli_query($conn,"SELECT * FROM usertable WHERE emailadd = '$uname' AND password = '$pword'")
+            or die ("failed to query database". mysqli_error());
+    $results = mysqli_fetch_assoc($result);
+    $numrows = mysqli_num_rows($result);
+    if($numrows==1){
+        $_SESSION['cname'] = $results['fname']." ".$results['lname'];
+        $_SESSION['cid'] = $results['id'];
+        echo"<script type='text/javascript'>alert('Login Successful'); 
+        window.location='index.php';
+        </script>";
+    }
+    else{
+		// echo "<script> var view_incorrect = document.getElementById('incorrect'); </script>";
+		// echo "<script> view_incorrect.style,display='block'; </script>";
+        echo"<script type='text/javascript'>alert('Incorrect username or password'); 
+        window.location='login.php';
+        </script>";
+    }
+}
+?>

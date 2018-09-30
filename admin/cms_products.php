@@ -188,7 +188,7 @@
 						}
 						?>
 
-					  <button onclick="document.getElementById('edit').style.display='block'" class="w3-button buttonstyle"><img src="img/edit.png" width="20px;"></button>
+					  <!-- <button onclick="document.getElementById('edit').style.display='block'" class="w3-button buttonstyle"><img src="img/edit.png" width="20px;"></button> -->
 					  <div id="edit" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">
@@ -231,7 +231,7 @@
 					      </div>
 					    </div>
 					  </div>
-					   <button class="w3-button buttonstyle"><img src="img/delete.png" width="20px;"></button>
+						<a onclick='javascript:confirmationDelete(this);return false;' href="?DeleteID=<?php echo $rows6['id'] ?>"><button class="w3-button buttonstyle"><img src="img/delete.png" width="20px;"></button></a>
 					</center>
 				  </td>
 				</tr>
@@ -243,7 +243,14 @@
 				</table>
 				</div>
 		</div>
-
+		<script>
+				function confirmationDelete(anchor)
+				{
+					var conf = confirm('Are you sure want to delete this record?');
+					if(conf)
+							window.location=anchor.attr("href");
+				}
+				</script>
 		<?php 
 			if(isset($_GET['viewID'])){
 				echo "<script> var view_modal = document.getElementById('view'); </script>";
@@ -266,30 +273,6 @@ if (isset($_POST['uploadbtn'])) {
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	$check = getimagesize($_FILES["product"]["tmp_name"]);
-	if ($check == false)
-			{
-					echo "<script type = 'text/javascript>alert'>alert('File is not an Image');
-					window.location.replace('cms_products.php');
-					</script>";
-					$uploadOk = 0;
-			}
-			if ($_FILES["product"]["size"] > 10000000) 
-			{
-					echo "<script type = 'text/javascript'>alert('Sorry, your file is too large');
-					window.location.replace('cms_products.php');
-					</script>";
-					$uploadOk = 0;
-			}
-			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" &&
-					$imageFileType != "JPG" && $imageFileType != "PNG" && $imageFileType != "JPEG" && $imageFileType != "GIF") 
-			{
-					echo "<script type = 'text/javascript'>alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed.');
-					window.location.replace('cms_products.php');
-					</script>";
-					$uploadOk = 0;
-			}
-			else 
-			{
 					if (move_uploaded_file($_FILES["product"]["tmp_name"], $target_file))
 					{
 					$result = mysqli_query($conn,"INSERT INTO producttable (prodname, prodprice, prodquantity, prodweight, prodimg, prodcategory) 
@@ -304,6 +287,13 @@ if (isset($_POST['uploadbtn'])) {
 							echo "<script type = 'text/javascript'>alert('Sorry, there was an error uploading your file.');
 							</script>";
 					}
-			}
+}
+if(isset($_GET['DeleteID'])){
+	$messageID = $_GET['DeleteID'];
+	$query = mysqli_query($conn,"DELETE FROM producttable WHERE id = $messageID")
+		 or die ("failed to query database". mysqli_error());
+		 echo"<script>
+		 alert('Deleted Succesfully');
+		 window.location.replace('cms_products.php');</script>";
 }
 ?>

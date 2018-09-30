@@ -199,7 +199,7 @@
 					      </div>
 					    </div>
 					  </div> -->
-						<button class="w3-button w3-large buttonstyle"><img src="img/delete.png" width="20px;"></button><br><br>
+						<a onclick='javascript:confirmationDelete(this);return false;' href="?DeleteID=<?php echo $rows4['id'] ?>"><button class="w3-button w3-large buttonstyle"><img src="img/delete.png" width="20px;"></button></a><br><br>
 					
 					</center>
 				  </td>
@@ -210,6 +210,14 @@
 				?>
 				</table>
 				</div>
+				<script>
+				function confirmationDelete(anchor)
+				{
+					var conf = confirm('Are you sure want to delete this record?');
+					if(conf)
+							window.location=anchor.attr("href");
+				}
+				</script>
 		</div>
 		<?php
 			if(isset($_GET['viewID'])){
@@ -217,6 +225,14 @@
 				echo "<script>var view_modal=document.getElementById('view');</script>";
 				echo "<script>view_modal.style.display='block';</script>";
 
+			}
+			if(isset($_GET['DeleteID'])){
+				$messageID = $_GET['DeleteID'];
+				$query = mysqli_query($conn,"DELETE FROM usertable WHERE id = $messageID")
+					 or die ("failed to query database". mysqli_error());
+					 echo"<script>
+					 alert('Deleted Succesfully');
+					 window.location.replace('useracc.php');</script>";
 			}
 	
 		?>
