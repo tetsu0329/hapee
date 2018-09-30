@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>About Us</title>
+	<title>View Product</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -21,6 +21,11 @@
       letter-spacing: 10px;
       text-transform: capitalize;
       padding-bottom: 2%;
+    }
+
+    .subtitlelight{
+      border-left: 8px solid #c4f0c5;
+      color: #fff;
     }
 
 	.titlesmall{
@@ -78,6 +83,9 @@
 	 .story{
 	 	background: #edffed;
 	 	padding: 3%;
+	 	min-height: 250px;
+	 	max-height: 250px;
+
 	 }
 
 	 .story p {
@@ -88,6 +96,57 @@
 	 .pagetitle{
 	 	padding-top: 100px;
 	 }
+
+	  .contact{
+	 	background: #23a393;
+	 }
+
+	blockquote{
+	  border-left: 8px solid #23a393;
+      text-transform: capitalize;
+      padding-bottom: 2%;
+	 }
+
+	.conttitle{
+		color: #23a393;
+	}
+
+	.topitem{
+		padding:8px 16px;
+		float:left;
+		width:auto;
+		border:none;
+		display:block;
+		outline:0
+	}
+
+	.facebookbtn{
+		background: #3b5998;
+		color: #fff;
+		cursor: pointer;
+	}
+	.twitterbtn{
+		background: #1DA1F2;
+		color: #fff;
+		cursor: pointer;
+	}
+	.instagrambtn{
+		background: #fb3958;
+		color: #fff;
+		cursor: pointer;
+	}
+	input, textarea{
+		resize: none;
+		padding:8px;
+		display:block;
+		border:none;
+		border-bottom:1px solid #ccc;
+		width:100%
+	}
+	p{
+		padding: 1%;
+		line-height: 3;
+	}
 	@media (min-width:601px){
 		.twocont{
 			width:49.99999%;
@@ -98,6 +157,7 @@
 		.fourcont{
 			width:24.99999%;
 		}
+
 </style>
 <body>
 <div class="wrapper">
@@ -105,16 +165,25 @@
 <!-- title -->
 
 	<div class="container">
-		<div class="pagetitle"><h6 class="subtitle">&nbsp;About Us</h6></div>
+		<div class="pagetitle"><h6 class="subtitle">&nbsp;Product Name</h6></div>
 	</div>
-	<div class="ourstory">
+
+
+	<div class="contact">
 		<div class="container">
 			<div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-	        <div class=" story">
-	        	<center><img src="img/cropped.png" width="50%;"></center>
-		    	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
-	        </div>
+				<div class="twocont view ">
+		        	<center><img src="img/tall.jpg" width="100%;"></center>
+		        </div>
 
+		        <div class="twocont view">
+		        	<h6 style="color: #fff; font-size: 25px">Php 123.00</h6>
+		        	<p class="subtitlelight">&nbsp;&nbsp;<b>Product Code:</b>&nbsp;001</p>
+		        	<p class="subtitlelight">&nbsp;&nbsp;<b>Description:</b>&nbsp;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</p>
+		        	<p class="subtitlelight">&nbsp;&nbsp;<b>Quantity:</b>&nbsp;<input type="number" name="quantity" placeholder="0"></p>
+		        	<br>
+		        	<button class="buttonstyle">ADD TO CART</button>
+		        </div>
 			</div>
 		</div>
 	</div>

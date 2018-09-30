@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>About Us</title>
+	<title>Products</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -100,7 +100,7 @@
 	<div class="container">
 
 	<div class="w3-row-padding w3-padding-32">
-        <a href="#"><div class="threecont" style="margin-top: 10px;">
+        <a href="product_view.php"><div class="threecont" style="margin-top: 10px;">
           <img src="img/tall.jpg" style="width:100%">
           <div class="wcontainer product">
             <center><p><b>Product 1</b></p></center>
@@ -109,7 +109,7 @@
           <div class="bg"><center><p>Php 123.00</p></center></div>
         </div></a>
 
-        <a href="#"><div class="threecont" style="margin-top: 10px;">
+        <a href="product_view.php"><div class="threecont" style="margin-top: 10px;">
           <img src="img/tall.jpg" style="width:100%">
           <div class="wcontainer product">
             <center><p><b>Product 1</b></p></center>
@@ -119,7 +119,7 @@
         </div></a>
 
 
-        <a href="#"><div class="threecont"  style="margin-top: 10px;">
+        <a href="product_view.php"><div class="threecont"  style="margin-top: 10px;">
           <img src="img/tall.jpg" style="width:100%">
           <div class="wcontainer product">
             <center><p><b>Product 1</b></p></center>
@@ -128,7 +128,7 @@
           <div class="bg"><center><p>Php 123.00</p></center></div>
         </div></a>
 
-        <a href="#"><div class="threecont"  style="margin-top: 10px;">
+        <a href="product_view.php"><div class="threecont"  style="margin-top: 10px;">
           <img src="img/tall.jpg" style="width:100%">
           <div class="wcontainer product">
             <center><p><b>Product 1</b></p></center>
@@ -137,7 +137,7 @@
           <div class="bg"><center><p>Php 123.00</p></center></div>
         </div></a>
 
-        <a href="#"><div class="threecont"  style="margin-top: 10px;">
+        <a href="product_view.php"><div class="threecont"  style="margin-top: 10px;">
           <img src="img/tall.jpg" style="width:100%">
           <div class="wcontainer product">
             <center><p><b>Product 1</b></p></center>

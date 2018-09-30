@@ -144,8 +144,8 @@ a.panel:hover {
       <a href="contact.php" class="w3-bar-item w3-button">Contact Us</a>
       <a href="gallery.php" class="w3-bar-item w3-button">Gallery</a>
        <a href="#" class="w3-bar-item w3-button isDisabled">|</a>
-      <a href="#" class="w3-bar-item w3-button">Login</a>
-      <a href="#" class="w3-bar-item w3-button">Register</a>
+      <a href="login.php" class="w3-bar-item w3-button">Login</a>
+      <a href="register.php" class="w3-bar-item w3-button">Register</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -160,7 +160,7 @@ a.panel:hover {
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close Menu ×</a>
       <a href="index.php" class="w3-bar-item w3-button">Home</a>
       <a href="about.php" class="w3-bar-item w3-button">About Us</a>
-      <a href="" class="w3-bar-item w3-button w3-padding accordion links">&nbsp; Products</a>
+      <a href="products.php" class="w3-bar-item w3-button w3-padding accordion links">&nbsp; Products</a>
     <div class="panel">
       <a href="#" class="w3-bar-item w3-button w3-padding links">1</a>
       <a href="#" class="w3-bar-item w3-button w3-padding links">2</a>
