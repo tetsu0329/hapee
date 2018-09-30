@@ -41,6 +41,9 @@
     	letter-spacing: 1px;
     	font-size: 14px;
 	}
+	table{
+		background: #fff;
+	}
 	th{
 		background: #99ddcc;
 		text-transform: uppercase;
@@ -104,7 +107,7 @@
 				  <td><?php echo $rows['customerName'] ?></td>
 				  <td><center><?php echo $rows['messageStatus'] ?></center></td>
 				  <td><center>
-						<a href="?View=<?php echo $rows['id']?>"><button class="w3-button">VIEW</button></a>
+						<a href="?View=<?php echo $rows['id']?>"><button class="w3-button buttonstyle"><img src="img/view.png" width="20px;"></button></button></a>
 					  <div id="view" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">

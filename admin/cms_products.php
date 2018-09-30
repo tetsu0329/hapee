@@ -42,6 +42,9 @@
       letter-spacing: 1px;
       font-size: 14px;
   }
+  	table{
+  		background: #fff;
+  	}
 	th{
 		background: #99ddcc;
 		text-transform: uppercase;
