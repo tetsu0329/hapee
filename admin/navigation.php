@@ -90,8 +90,9 @@ a.panel:hover {
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="index.php" class="w3-bar-item w3-button links">Dashboard</a>
     <a href="inquiry.php" class="w3-bar-item w3-button links">Inquiry</a>
+    <a href="orders.php" class="w3-bar-item w3-button links">Orders</a>
     <a href="useracc.php" class="w3-bar-item w3-button links">User Accounts</a>
-    <a href="#" class="w3-bar-item accordion links">&nbsp;Content Management Sysytem</a>
+    <a href="#" class="w3-bar-item accordion links">Content Management Sysytem</a>
       <div class="panel">
         <!-- <a href="cms_slider.php" class="w3-bar-item links">Slider Images</a> -->
         <a href="cms_about.php" class="w3-bar-item links">About Us</a>
