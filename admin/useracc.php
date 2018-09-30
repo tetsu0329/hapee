@@ -74,7 +74,7 @@
 
 			<h2 class="title">&nbsp;User Accounts</h2><br>
 			<br>
-			
+		
 			<div class="w3-responsive">
 				<div class="topbtn">
 					<div class="w3-show-inline-block w3-right">
@@ -113,7 +113,7 @@
 						      </div>
 						    </div>
 						  </div>
-						  <button class="w3-button w3-large buttonstyle"><img src="img/delete.png" width="20px;"></button><br><br>
+					<br>	
 						</div>
 					</div>
 				</div>
@@ -121,36 +121,52 @@
 				<table class="w3-table w3-bordered w3-hoverable">
 				<tr>
 				  <th class="name">Name</th>
-				  <th><center>Status</center></th>
+				  <th><center>EMail Address</center></th>
 				  <th><center>Mobile Number</center></th>
 				  <th><center>Actions</center></th>
 				</tr>
-				<tr">
-				  <td>Jill</td>
-				  <td><center>Lorem Status</center></td>
-				  <td><center>No Purchase</center></td>
+				<?php
+					$userselect=mysqli_query($conn,"SELECT * FROM usertable");
+					while($rows4=mysqli_fetch_assoc($userselect)){
+
+				?>
+				<tr>
+				  <td><?php echo $rows4['fname']." ".$rows4['lname'] ?></td>
+				  <td><center><?php echo $rows4['emailadd'] ?></center></td>
+				  <td><center><?php echo $rows4['mobilenum'] ?></center></td>
 				  <td>
 				  	<center>
-				  	  <button onclick="document.getElementById('view').style.display='block'" class="w3-button buttonstyle"><img src="img/view.png" width="20px;"></button>
-					  <div id="view" class="w3-modal">
+				  	  <a href="?viewID=<?php echo $rows4['id']?>"><button class="w3-button buttonstyle"><img src="img/view.png" width="20px;"></button></a>
+						<?php
+							if(isset($_GET['viewID'])){
+								$userId=$_GET['viewID'];
+
+								$userquery=mysqli_query($conn,"SELECT * FROM usertable WHERE id=$userId");
+								while($rows5=mysqli_fetch_assoc($userquery)){
+
+						?>
+						<div id="view" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">
 					        <span onclick="document.getElementById('view').style.display='none'" class="w3-button w3-display-topright">&times;</span>
 					        <div class="w3-container">
-					        	<h5 class="title w3-left">&nbsp;Lorem ipsum name</h5><br>
+					        	<h5 class="title w3-left">&nbsp;<?php echo $rows5['fname']." ".$rows5['lname'] ?></h5><br>
 					        	<hr>
 					        	<div class="details">
-					        		<h6 class="titlesmall">&nbsp;<b style="color: #23a393;">Mobile Number:</b>&nbsp;<span>123456789</span></h6>
-					        		<h6 class="titlesmall">&nbsp;<b style="color: #23a393;">Email Address:</b>&nbsp;<span>emailaddress@gmail.com</span></h6>
-					        		<h6 class="titlesmall">&nbsp;<b style="color: #23a393;">Address</b>:&nbsp;<span>Blk 123 Phase 123 Abc Street Efg City</span></h6>
+					        		<h6 class="titlesmall">&nbsp;<b style="color: #23a393;">Mobile Number:</b>&nbsp;<span><?php echo $rows5['mobilenum'] ?></span></h6>
+					        		<h6 class="titlesmall">&nbsp;<b style="color: #23a393;">Email Address:</b>&nbsp;<span><?php echo $rows5['emailadd'] ?></span></h6>
+					        		<h6 class="titlesmall">&nbsp;<b style="color: #23a393;">Address</b>:&nbsp;<span><?php echo $rows5['street'] ?></span></h6>
 					        	</div>
 					        </div>
 					      </div>
 					    </div>
 					  </div>
-
-					  <button onclick="document.getElementById('edit').style.display='block'" class="w3-button buttonstyle"><img src="img/edit.png" width="20px;"></button>
-					  <div id="edit" class="w3-modal">
+						<?php
+							}
+						}
+						?>
+					  <!-- <button onclick="document.getElementById('edit').style.display='block'" class="w3-button buttonstyle"><img src="img/edit.png" width="20px;"></button> -->
+					  <!-- <div id="edit" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">
 					        <span onclick="document.getElementById('edit').style.display='none'" class="w3-button w3-display-topright">&times;</span>
@@ -182,12 +198,27 @@
 					        </div>
 					      </div>
 					    </div>
-					  </div>
+					  </div> -->
+						<button class="w3-button w3-large buttonstyle"><img src="img/delete.png" width="20px;"></button><br><br>
+					
 					</center>
 				  </td>
 				</tr>
+				<?php
+							}
+
+				?>
 				</table>
 				</div>
 		</div>
+		<?php
+			if(isset($_GET['viewID'])){
+				$userview=$_GET['viewID'];
+				echo "<script>var view_modal=document.getElementById('view');</script>";
+				echo "<script>view_modal.style.display='block';</script>";
+
+			}
+	
+		?>
 </body>
 </html>

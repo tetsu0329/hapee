@@ -93,7 +93,7 @@ a.panel:hover {
     <a href="useracc.php" class="w3-bar-item w3-button links">User Accounts</a>
     <a href="#" class="w3-bar-item accordion links">&nbsp;Content Management Sysytem</a>
       <div class="panel">
-        <a href="cms_slider.php" class="w3-bar-item links">Slider Images</a>
+        <!-- <a href="cms_slider.php" class="w3-bar-item links">Slider Images</a> -->
         <a href="cms_about.php" class="w3-bar-item links">About Us</a>
         <a href="cms_contact.php" class="w3-bar-item links">Contact Us</a>
         <a href="cms_gallery.php" class="w3-bar-item links">Gallery</a>

@@ -61,7 +61,10 @@
   }
 </style>
 <body>
-
+  <?php
+    while($rows6=mysqli_fetch_assoc($contacttable)){
+  ?>
+  <form action="" method="POST">
   <div class="w3-main" style="margin-left:300px;margin-top:43px;">
     <div class="content">
 
@@ -71,7 +74,7 @@
             <div class="w3-container status a">
               <div class="w3-center">
                 <h6 class="titlesmall w3-left">&nbsp;Contact Person</h6><br><br>
-                <p class="about w3-center"><input class="w3-input inputcolora" type="text" value="Name Name Name Name"><br>
+                <p class="about w3-center"><input class="w3-input inputcolora" name="name" type="text" value="<?php echo $rows6['name'] ?>"><br>
               </div>
             </div>
           </div>
@@ -80,7 +83,7 @@
             <div class="w3-container status b">
               <div class="w3-center">
                 <h6 class="titlesmall w3-left">&nbsp;Address</h6><br><br>
-                <p class="about w3-center"><input class="w3-input inputcolorb" type="text" value="Address Address Address Address Address Address"><br>
+                <p class="about w3-center"><input class="w3-input inputcolorb" name="address" type="text" value="<?php echo $rows6['address'] ?>"><br>
               </div>
             </div>
           </div>
@@ -89,7 +92,7 @@
             <div class="w3-container status a">
               <div class="w3-center">
                 <h6 class="titlesmall w3-left">&nbsp;Email Address</h6><br><br>
-                <p class="about w3-center"><input class="w3-input inputcolora" type="text" value="email@email.com"><br>
+                <p class="about w3-center"><input class="w3-input inputcolora" name="eadd" type="text" value="<?php echo $rows6['email'] ?>""><br>
               </div>
             </div>
           </div>
@@ -98,7 +101,7 @@
             <div class="w3-container status b">
               <div class="w3-center">
                 <h6 class="titlesmall w3-left">&nbsp;Contact Number</h6><br><br>
-                <p class="about w3-center"><input class="w3-input inputcolorb" type="text" value="123456789"><br>
+                <p class="about w3-center"><input class="w3-input inputcolorb" name="cnum" type="text" value="<?php echo $rows6['contactnumber'] ?>"><br>
               </div>
             </div>
           </div>
@@ -107,7 +110,7 @@
             <div class="w3-container status b">
               <div class="w3-center">
                 <h6 class="titlesmall w3-left">&nbsp;Facebook</h6><br><br>
-                <p class="about w3-center"><input class="w3-input inputcolorb" type="text" value="facebook.com"><br>
+                <p class="about w3-center"><input class="w3-input inputcolorb" name="fb" type="text" value="<?php echo $rows6['facebook'] ?>""><br>
               </div>
             </div>
           </div>
@@ -116,7 +119,7 @@
             <div class="w3-container status a">
               <div class="w3-center">
                 <h6 class="titlesmall w3-left">&nbsp;Instagram</h6><br><br>
-                <p class="about w3-center"><input class="w3-input inputcolora" type="text" value="instagram.com"><br>
+                <p class="about w3-center"><input class="w3-input inputcolora" name="ig" type="text" value="<?php echo $rows6['instagram'] ?>"><br>
               </div>
             </div>
           </div>
@@ -125,13 +128,35 @@
             <div class="w3-container status b">
               <div class="w3-center">
                 <h6 class="titlesmall w3-left">&nbsp;Twitter</h6><br><br>
-                <p class="about w3-center"><input class="w3-input inputcolorb" type="text" value="twitter.com"><br>
+                <p class="about w3-center"><input class="w3-input inputcolorb" name="tw" type="text" value="<?php echo $rows6['twitter'] ?>"><br>
               </div>
             </div>
           </div>
       </div>
     </div>
   </div>
-        <br><center><button class="w3-button w3-large buttonstyle w3-center">SAVE</button><br>
+        <br><center><input type="submit" name="updatebtn" class="w3-button w3-large buttonstyle w3-center" value="SAVE"><br>
+  </form>
+  <?php
+    }
+  ?>
 </body>
 </html>
+<?php
+if(isset($_POST['updatebtn'])){
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    $email = $_POST['eadd'];
+    $phone = $_POST['cnum'];
+    $facebook = $_POST['fb'];
+    $instagram = $_POST['ig'];
+    $twitter = $_POST['tw'];
+
+    $result = mysqli_query($conn,"UPDATE contacttable SET name = '$name', address = '$address', email = '$email', 
+    contactnumber = '$phone', facebook = '$facebook', instagram = '$instagram', twitter = '$twitter'")
+        or die ("failed to query database". mysqli_error());
+        echo"<script type='text/javascript'>alert('Contact Information updated successfully'); 
+        window.location='cms_contact.php';
+        </script>";
+}
+?>

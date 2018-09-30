@@ -159,34 +159,38 @@
 		<div class="pagetitle"><h6 class="subtitle">&nbsp;Contact Us</h6></div>
 	</div>
 
-
+	<?php
+		 $contacttable = mysqli_query($conn,"SELECT * FROM  contacttable");
+		 while($rows4=mysqli_fetch_assoc($contacttable)){
+	?>
 	<div class="contact">
 		<div style="float: right;">
 		<div class="w3-bar">
-		  <a href=""><button class="topitem facebookbtn"><img src="img/facebook.png" width="40%;"></button></a>
-		  <a href=""><button class="topitem twitterbtn"><img src="img/twitter.png" width="40%;"></button></a>
-		  <a href=""><button class="topitem instagrambtn"><img src="img/instagram.png" width="40%;"></button></a>
+		  <a href="<?php echo $rows4['facebook'] ?>"><button class="topitem facebookbtn"><img src="img/facebook.png" width="40%;"></button></a>
+		  <a href="<?php echo $rows4['twitter'] ?>"><button class="topitem twitterbtn"><img src="img/twitter.png" width="40%;"></button></a>
+		  <a href="<?php echo $rows4['instagram'] ?>"><button class="topitem instagrambtn"><img src="img/instagram.png" width="40%;"></button></a>
 		</div>
 	</div>
 	<br><br>
+
 		<div class="container">
 			<div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
 		        <div class="story">
-		        	<h6><b class="conttitle">Contact Person:</b>&nbsp;<span>Lorem Name</span></h6>
-		        	<h6><b class="conttitle">Address:</b>&nbsp;<span>Lorem Address Address Address Address Address Address Address</span></h6>
-		        	<h6><b class="conttitle">Email Address:</b>&nbsp;<span>email@email.com</span></h6>
-		        	<h6><b class="conttitle">Contact Number:</b>&nbsp;<span>0123456789</span></h6>
+		        	<h6><b class="conttitle">Contact Person:</b>&nbsp;<span><?php echo $rows4['name'] ?></span></h6>
+		        	<h6><b class="conttitle">Address:</b>&nbsp;<span><?php echo $rows4['address'] ?></span></h6>
+		        	<h6><b class="conttitle">Email Address:</b>&nbsp;<span><?php echo $rows4['email'] ?></span></h6>
+		        	<h6><b class="conttitle">Contact Number:</b>&nbsp;<span><?php echo $rows4['contactnumber'] ?></span></h6>
 		        </div>
 
 		        <div class="twocont">
 		        	<h6 style="color: #fff;">Leave us a message!</h6>
-		        	<form>
+		        	<form action="" method="POST">
 						<p><input name="fname" type="text" placeholder="Fullname"></p>
 						<p><input name="email" type="text" placeholder="Email Address"></p>
 						<p><input name="subj" type="text" placeholder="Subject"></p>
 						<p><textarea name="msg" type="text" placeholder="Message"></textarea></p>
-		        	</form>
-		        	<button class="buttonstyle">SEND</button>
+		        	<input name="submitinqbtn" type="submit" class="buttonstyle" value="SEND">
+					</form>
 		        	<br>
 		        </div>
 		        <br><br>
@@ -196,6 +200,9 @@
 
 			</div>
 		</div>
+	<?php
+		 }
+	?>
 	</div>
 <!-- scripts -->
 </div>
@@ -203,6 +210,18 @@
 </html>
 <?php include("footer.php");?>
 <?php
+if(isset($_POST['submitinqbtn'])){
+	$fname = $_POST['fname'];
+	$email = $_POST['email'];
+	$subj = $_POST['subj'];
+	$msg = $_POST['msg'];
+	date_default_timezone_set("Asia/Manila");
+	$date= date("M-d-Y");
+	$status = "Unread";
 
-
+	$insertsql = mysqli_query($conn, "INSERT INTO inquirytable (customerName, customerEmail, messageBody, messageSubject, messageDate, messageStatus)
+										VALUE('$fname','$email','$msg', '$subj', '$date', '$status')")
+										or die ("failed to query database". mysqli_error());
+	echo "<script>alert('Inquiry sent')</script>";
+}
 ?>

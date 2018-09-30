@@ -119,12 +119,12 @@
 												while($rows2=mysqli_fetch_assoc($sqlview)){
 										?>
 					        	<div class="details">
-					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Sender Name:</b>&nbsp;<span><?php echo $rows['customerName'] ?></span></h6><br><br>
-					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Sender Email:</b>&nbsp;<span><?php echo $rows['customerEmail'] ?></span></h6><br><br>
-					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Message Subject:</b>&nbsp;<span><?php echo $rows['messageSubject'] ?></span></h6><br><br>
-					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Message Date:</b>&nbsp;<span><?php echo $rows['messageDate'] ?></span></h6><br><br>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Sender Name:</b>&nbsp;<span><?php echo $rows2['customerName'] ?></span></h6><br><br>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Sender Email:</b>&nbsp;<span><?php echo $rows2['customerEmail'] ?></span></h6><br><br>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Message Subject:</b>&nbsp;<span><?php echo $rows2['messageSubject'] ?></span></h6><br><br>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Message Date:</b>&nbsp;<span><?php echo $rows2['messageDate'] ?></span></h6><br><br>
 					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Message Body:</b>&nbsp;</h6>
-					        		<h6 class="w3-left messagebody"><?php echo $rows['messageBody'] ?></h6>
+					        		<h6 class="w3-left messagebody"><?php echo $rows2['messageBody'] ?></h6>
 					        	</div>
 										<?php
 												}
@@ -134,11 +134,15 @@
 					      </div>
 					    </div>
 					  </div>
-						<?php
-						}
-						?>
 
-					  <button onclick="document.getElementById('edit').style.display='block'" class="w3-button buttonstyle"><img src="img/reply.png" width="20px;"></button>
+					  <a href="?ReplyID=<?php echo $rows['id'] ?>"><button class="w3-button buttonstyle"><img src="img/reply.png" width="20px;"></button></a>
+						<?php
+						if(isset($_GET['ReplyID'])){
+							$inqid = $_GET['ReplyID'];
+							$specific_inquiry = mysqli_query($conn, "SELECT * FROM inquirytable WHERE id = '$inqid'");
+							while($rows3=mysqli_fetch_assoc($specific_inquiry)){
+
+						?>
 					  <div id="edit" class="w3-modal">
 					    <div class="w3-modal-content">
 					      <div class="w3-container">
@@ -148,7 +152,7 @@
 					        	<hr>
 					        	<div class="details">
 					        		<div class="details">
-					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Recipient:</b>&nbsp;<span>emailaddress@gmail.com</span></h6><br><br>
+					        		<h6 class="titlesmall w3-left">&nbsp;<b style="color: #23a393;">Recipient:</b>&nbsp;<span><?php echo $rows3['customerEmail']; ?></span></h6><br><br>
 					        		 <textarea style="height: 200px; resize: none;" placeholder="Type your message here...."></textarea>
 					        	</div>
 					        		<!-- <h6 class="titlesmall w3-center">&nbsp;<b style="color: #23a393;">Personal Information</b><br><br>
@@ -176,7 +180,10 @@
 					      </div>
 					    </div>
 					  </div>
-
+						<?php				
+							}
+						}
+						?>
 					  <button onclick="document.getElementById('delete').style.display='block'" class="w3-button buttonstyle"><img src="img/delete.png" width="20px;"></button>
 					  <div id="delete" class="w3-modal">
 					    <div class="w3-modal-content">
@@ -211,10 +218,12 @@
 					      </div>
 					    </div>
 					  </div>
-
 				  </td>
 				</center>
 				</tr>
+				<?php
+						}
+					?>
 				</table>
 				</div>
 		</div>
@@ -227,5 +236,10 @@
 		echo "<script> view_modal.style.display = 'block' </script>";
 		$result = mysqli_query($conn,"UPDATE inquirytable SET messageStatus = 'Read' WHERE id = $messageID")
             or die ("failed to query database". mysqli_error());
+	}
+	if(isset($_GET['ReplyID'])){
+		$id = $_GET['ReplyID'];
+		echo "<script> var reply_modal = document.getElementById('edit'); </script>";
+		echo "<script> reply_modal.style.display = 'block' </script>";
 	}
 ?>

@@ -171,6 +171,7 @@
 		.fourcont{
 			width:24.99999%;
 		}
+	}
 </style>
 <body>
 <div class="wrapper">
@@ -190,7 +191,7 @@
 	  <span class="dot"></span>
 	</div>
 
-<!-- best sellers -->
+<!-- best sellers
 	<div class="container">
 		<div class="bestsellers">
 			<h3 class="subtitle">&nbsp;Our Best Sellers</h3>
@@ -224,7 +225,7 @@
           </div>
           <div class="bg"><center><p>Php 123.00</p></center></div>
         </div></a>
-	</div>
+	</div> -->
 
 	<center><a href="products.php"><button class="buttonstyle">SEE ALL</button></a></center>
 </div>

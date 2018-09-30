@@ -56,7 +56,7 @@
 			    <div class="w3-quarter">
 			      <div class="w3-container status b">
 			        <div class="w3-center">
-			          <h1 class="count">485</h1>
+			          <h1 class="count"><?php echo $prodcount ?></h1>
 			          <h4>PRODUCTS</h4>
 			        </div>
 			      </div>
@@ -74,7 +74,7 @@
 			    <div class="w3-quarter">
 			      <div class="w3-container status b">
 			        <div class="w3-center">
-			          <h1 class="count">35</h1>
+			          <h1 class="count"><?php echo $usercount ?></h1>
 			          <h4>ACCOUNTS</h4>
 			        </div>
 			      </div>

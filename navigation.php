@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include('connection/controller.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -133,10 +134,9 @@ a.panel:hover {
 	    <button class="dropbtn">Products</button>
 	    </a>
 	    <div class="dropdown-content">
-	      <a href="#">1</a>
-	      <a href="#">2</a>
-	      <a href="#">3</a>
-	      <a href="#">4</a>
+	      <a href="?Category=Chocolate">Chocolate</a>
+	      <a href="?Category=Chips">Chips</a>
+	      <a href="?Category=Pastry">Pastry</a>
 	      <a href="products.php">See All</a>
 	    </div>
   	</div>
@@ -162,11 +162,9 @@ a.panel:hover {
       <a href="about.php" class="w3-bar-item w3-button">About Us</a>
       <a href="products.php" class="w3-bar-item w3-button w3-padding accordion links">&nbsp; Products</a>
     <div class="panel">
-      <a href="#" class="w3-bar-item w3-button w3-padding links">1</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding links">2</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding links">3</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding links">4</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding links">5</a>
+        <a href="?Category=Chocolate">Chocolate</a>
+	      <a href="?Category=Chips">Chips</a>
+	      <a href="?Category=Pastry">Pastry</a>
       <a href="#" class="w3-bar-item w3-button w3-padding links">See all</a>
     </div>
       <a href="gallery.php" class="w3-bar-item w3-button">Gallery</a>

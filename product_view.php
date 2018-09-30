@@ -157,15 +157,25 @@
 		.fourcont{
 			width:24.99999%;
 		}
-
+	}
 </style>
 <body>
 <div class="wrapper">
 
 <!-- title -->
+<?php
+	if(isset($_GET['ID'])){
+		$id = $_GET['ID'];
+		$producttable = mysqli_query($conn,"SELECT * FROM  producttable WHERE id='$id'");
+	}
+	else{
+		echo "<script>window.location.replace('products.php')</script>";
+	}
+	while($rows11 = mysqli_fetch_assoc($producttable)){
 
+?>
 	<div class="container">
-		<div class="pagetitle"><h6 class="subtitle">&nbsp;Product Name</h6></div>
+		<div class="pagetitle"><h6 class="subtitle">&nbsp;<?php echo $rows11['prodname'] ?></h6></div>
 	</div>
 
 
@@ -173,13 +183,13 @@
 		<div class="container">
 			<div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
 				<div class="twocont view ">
-		        	<center><img src="img/tall.jpg" width="100%;"></center>
+		        	<center><img src="<?php echo substr($rows11['prodimg'],3) ?>" width="100%;"></center>
 		        </div>
 
 		        <div class="twocont view">
-		        	<h6 style="color: #fff; font-size: 25px">Php 123.00</h6>
-		        	<p class="subtitlelight">&nbsp;&nbsp;<b>Product Code:</b>&nbsp;001</p>
-		        	<p class="subtitlelight">&nbsp;&nbsp;<b>Description:</b>&nbsp;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</p>
+		        	<h6 style="color: #fff; font-size: 25px">Php <?php echo $rows11['prodprice'] ?></h6>
+		        	<p class="subtitlelight">&nbsp;&nbsp;<b>Product weight:</b>&nbsp;<?php echo $rows11['prodweight'] ?></p>
+					<p class="subtitlelight">&nbsp;&nbsp;<b>Available Quantity :</b>&nbsp;<?php echo $rows11['prodquantity'] ?></p>
 		        	<p class="subtitlelight">&nbsp;&nbsp;<b>Quantity:</b>&nbsp;<input type="number" name="quantity" placeholder="0"></p>
 		        	<br>
 		        	<button class="buttonstyle">ADD TO CART</button>
@@ -187,10 +197,9 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
+<?php
+	}
+?>
 
 <!-- scripts -->
 </div>

@@ -85,6 +85,7 @@
 		.fourcont{
 			width:24.99999%;
 		}
+	}
 </style>
 <body>
 <div class="wrapper">

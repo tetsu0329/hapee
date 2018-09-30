@@ -88,6 +88,7 @@
 		.fourcont{
 			width:24.99999%;
 		}
+	}
 </style>
 <body>
 <div class="wrapper">
@@ -98,54 +99,31 @@
 		<div class="pagetitle"><h6 class="subtitle">&nbsp;Our Products</h6></div>
 	</div>
 	<div class="container">
+	<?php
+	if(isset($_GET['Category'])){
+		$cat = $_GET['Category'];
+		$producttable = mysqli_query($conn,"SELECT * FROM  producttable WHERE prodcategory='$cat'");
+	}
+	else{
+		$producttable = mysqli_query($conn,"SELECT * FROM  producttable");
+	}
+	?>
 
 	<div class="w3-row-padding w3-padding-32">
-        <a href="product_view.php"><div class="threecont" style="margin-top: 10px;">
-          <img src="img/tall.jpg" style="width:100%">
+	<?php
+		while($rows10 = mysqli_fetch_assoc($producttable)){
+	?>
+        <a href="product_view.php?ID=<?php echo $rows10['id'] ?>"><div class="threecont" style="margin-top: 10px;">
+          <img src="<?php echo substr($rows10['prodimg'],3) ?>" style="width:100%">
           <div class="wcontainer product">
-            <center><p><b>Product 1</b></p></center>
-            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+            <center><p><b><?php echo $rows10['prodname'] ?></b></p></center>
+            <center><p>Available Quantity: <?php echo $rows10['prodquantity'] ?></p></center>
           </div>
-          <div class="bg"><center><p>Php 123.00</p></center></div>
+          <div class="bg"><center><p>Php <?php echo $rows10['prodprice'] ?></p></center></div>
         </div></a>
-
-        <a href="product_view.php"><div class="threecont" style="margin-top: 10px;">
-          <img src="img/tall.jpg" style="width:100%">
-          <div class="wcontainer product">
-            <center><p><b>Product 1</b></p></center>
-            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-          </div>
-          <div class="bg"><center><p>Php 123.00</p></center></div>
-        </div></a>
-
-
-        <a href="product_view.php"><div class="threecont"  style="margin-top: 10px;">
-          <img src="img/tall.jpg" style="width:100%">
-          <div class="wcontainer product">
-            <center><p><b>Product 1</b></p></center>
-            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-          </div>
-          <div class="bg"><center><p>Php 123.00</p></center></div>
-        </div></a>
-
-        <a href="product_view.php"><div class="threecont"  style="margin-top: 10px;">
-          <img src="img/tall.jpg" style="width:100%">
-          <div class="wcontainer product">
-            <center><p><b>Product 1</b></p></center>
-            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-          </div>
-          <div class="bg"><center><p>Php 123.00</p></center></div>
-        </div></a>
-
-        <a href="product_view.php"><div class="threecont"  style="margin-top: 10px;">
-          <img src="img/tall.jpg" style="width:100%">
-          <div class="wcontainer product">
-            <center><p><b>Product 1</b></p></center>
-            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-          </div>
-          <div class="bg"><center><p>Php 123.00</p></center></div>
-        </div></a>
-
+		<?php
+			}
+		?>
     </div>
 
 </div>

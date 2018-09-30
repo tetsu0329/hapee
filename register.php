@@ -117,6 +117,7 @@
 		.fourcont{
 			width:24.99999%;
 		}
+	}
 </style>
 <body>
 <div class="wrapper">
@@ -129,31 +130,30 @@
 	<div class="ourstory">
 		<div class="container">
 			<div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+			<form action="" method="POST"> 
 	        <div class=" story">
 	        	<center><img src="img/cropped.png" width="50%;"></center>
 	        	<h6 class="subtitle2">&nbsp;Personal Information</h6>
 		    	<p><input type="text" name="lname" placeholder="Lastname"></p>
 		    	<p><input type="text" name="fname" placeholder="Firstname"></p>
-		    	<p><input type="number" name="mobnum" placeholder="Mobile Number"></p>
+		    	<p><input type="text" name="mobnum" placeholder="Mobile Number"></p>
 		    	<p><input type="text" name="email" placeholder="Email Address"></p>
 		    	<br>
 		    	<h6 class="subtitle2">&nbsp;Billing Information</h6>
-		    	<p><input type="text" name="address" placeholder="House number, building, street, subdivision"></p>
-		    	<p><input type="text" name="city" placeholder="City"></p>
-		    	<p><input type="number" name="brgy" placeholder="Barangay"></p>
-		    	<p><input type="text" name="email" placeholder="Email Address"></p>
+		    	<p><input type="text" name="street" placeholder="House number, building, street, subdivision"></p>
 		    	<br>
 		    	<h6 class="subtitle2">&nbsp;Login Information</h6>
-		    	<p><input type="text" name="pword" placeholder="Password"></p>
-		    	<p><input type="text" name="cpword" placeholder="Confirm Password"></p>
+		    	<p><input type="password" name="pword" placeholder="Password"></p>
+		    	<p><input type="password" name="cpword" placeholder="Confirm Password"></p>
 		    	<br>
+				<input name="regbtn" type="Submit" class="buttonstyle" value="Register">
+
 		    	<center>
-		    		<button class="buttonstyle">REGISTER</button>
 		    		<p>Already have an account?<b>&nbsp;<a href="login.php" class="contactlink">Sign in here!</a></p>
 		    	</center>
 		    	
 	        </div>
-
+			</form>
 			</div>
 		</div>
 	</div>
@@ -167,3 +167,25 @@
 </body>
 </html>
 <?php include("footer.php");?>
+<?php
+if(isset($_POST['regbtn'])){
+	$lname = $_POST['lname'];
+	$fname = $_POST['fname'];
+	$mobnum = $_POST['mobnum'];
+	$email = $_POST['email'];
+	$street = $_POST['street'];
+	$pword = $_POST['pword'];
+	$cpword = $_POST['cpword'];
+	$status = "Active";
+	if(strcmp($pword, $cpword) == 0){
+		$insertsql = mysqli_query($conn, "INSERT INTO usertable (lname, fname, mobilenum, emailadd, street, password, status)
+											VALUE('$lname','$fname','$mobnum', '$email', '$street', '$pword', '$status')")
+												or die ("failed to query database". mysqli_error());
+												echo "<script>alert('Registration Successful');
+											window.location.replace('index.php')</script>";
+	}
+	else{
+		echo "<script>alert('Password doesnt match')</script>";
+	}
+}
+?>
