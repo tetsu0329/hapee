@@ -148,6 +148,7 @@
 		.fourcont{
 			width:24.99999%;
 		}
+	}
 </style>
 <body>
 <div class="wrapper">
@@ -196,13 +197,12 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
-
 <!-- scripts -->
 </div>
 </body>
 </html>
 <?php include("footer.php");?>
+<?php
+
+
+?>

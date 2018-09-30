@@ -129,7 +129,6 @@ a.panel:hover {
     <!-- Right-sided navbar links -->
     <div class="nav w3-right w3-hide-small">
       <a href="index.php" class="w3-bar-item w3-button">Home</a>
-      <a href="about.php" class="w3-bar-item w3-button">About Us</a>
       <a href=""><div class="dropdown">
 	    <button class="dropbtn">Products</button>
 	    </a>
@@ -141,8 +140,9 @@ a.panel:hover {
 	      <a href="products.php">See All</a>
 	    </div>
   	</div>
-      <a href="gallery.php" class="w3-bar-item w3-button">Gallery</a>
+      <a href="about.php" class="w3-bar-item w3-button">About Us</a>
       <a href="contact.php" class="w3-bar-item w3-button">Contact Us</a>
+      <a href="gallery.php" class="w3-bar-item w3-button">Gallery</a>
        <a href="#" class="w3-bar-item w3-button isDisabled">|</a>
       <a href="#" class="w3-bar-item w3-button">Login</a>
       <a href="#" class="w3-bar-item w3-button">Register</a>
