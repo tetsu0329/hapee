@@ -1,4 +1,36 @@
-<?php include ("navigation.php"); ?>
+<?php
+include ("navigation.php");
+if(isset($_GET['Checkout']))
+  {
+	echo "<script>alert('Product Added to Cart')</script>";
+    $prodID= $_GET['Checkout'];
+    if(!empty($_SESSION['product']))
+    {
+      $rowcounttt = count($_SESSION['product']);
+      $query = mysqli_query($conn,"SELECT * FROM producttable where id='$prodID'");
+      while ($queryhold= mysqli_fetch_array($query)){
+		$product[1] = $queryhold['id'];
+		$product[2] = $_POST['quantity'];
+		$product[3] = $queryhold['prodprice'];
+		$product[4] = $queryhold['prodname'];
+      }
+      array_push($_SESSION['product'], $product);
+      echo "<script>window.location = 'checkout.php'</script>";
+    }
+    if(empty($_SESSION['product']))
+    {
+      $query = mysqli_query($conn,"SELECT * FROM producttable where id='$prodID'");
+      while ($queryhold= mysqli_fetch_array($query)){
+		$product[1] = $queryhold['id'];
+		$product[2] = $_POST['quantity'];
+		$product[3] = $queryhold['prodprice'];
+		$product[4] = $queryhold['prodname'];
+      }
+      $_SESSION['product']=array($product);
+      echo "<script>window.location = 'checkout.php'</script>";
+    }
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -111,6 +143,7 @@
 		.fourcont{
 			width:24.99999%;
 		}
+	}
 </style>
 <body>
 <div class="wrapper">
@@ -123,52 +156,43 @@
 	<div class="ourstory">
 		<div class="container">
 			<div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-	        <div class="story">
-		    	<div class="twocont box1"><center><img src="img/tall.jpg" width="100%;"></center></div>
-
-		    	<div class="twocont box1">
-		        		<h6><b class="conttitle"><b class="size">Product Name</b></h6>
-		        		<hr>
-		        		<h6><b class="conttitle"><i>Price</i></b>&nbsp;&nbsp;<span class="size">Php 123.00</span></h6>
-		        		<h6><b class="conttitle"><i>Quanity</i></b>&nbsp;&nbsp;<span class="size">1</span></h6>
-		        		<h6><b class="conttitle"><i>Subtotal</i></b>&nbsp;&nbsp;<span class="size">Php 123.00</span></h6>
-		        		<hr>
-		        		<h6><b class="conttitle"><i>TOTAL</i></b>&nbsp;&nbsp;<span class="size">Php 123.00</span></h6>
-		        </div>
-		    	<center><a href="about.php"><button class="buttonstyle">PLACE ORDER</button></a></center>
-	        </div>
+			<?php
+			if(!empty($_SESSION['product'])){
+				$total = 0;
+			$rowcount= count($_SESSION['product']);
+			$sub = 0;
+			for($row=0; $row<$rowcount; $row++)
+			{
+			?>
 
 	        <div class="story">
 		    	<div class="twocont box1"><center><img src="img/tall.jpg" width="100%;"></center></div>
 
 		    	<div class="twocont box1">
-		        		<h6><b class="conttitle"><b class="size">Product Name</b></h6>
+		        		<h6><b class="conttitle"><b class="size"><?php echo($_SESSION['product'][$row][4]) ?></b></h6>
 		        		<hr>
-		        		<h6><b class="conttitle"><i>Price</i></b>&nbsp;&nbsp;<span class="size">Php 123.00</span></h6>
-		        		<h6><b class="conttitle"><i>Quanity</i></b>&nbsp;&nbsp;<span class="size">1</span></h6>
-		        		<h6><b class="conttitle"><i>Subtotal</i></b>&nbsp;&nbsp;<span class="size">Php 123.00</span></h6>
+		        		<h6><b class="conttitle"><i>Price</i></b>&nbsp;&nbsp;<span class="size"><?php echo($_SESSION['product'][$row][3]) ?></span></h6>
+		        		<h6><b class="conttitle"><i>Quanity</i></b>&nbsp;&nbsp;<span class="size"><?php echo($_SESSION['product'][$row][2]) ?></span></h6>
+						<h6><b class="conttitle"><i>Subtotal</i></b>&nbsp;&nbsp;<span class="size">
+						<?php 
+							$total = $_SESSION['product'][$row][2] * $_SESSION['product'][$row][3]; 
+							echo "Php ".$total;
+						?>
+						</span></h6>
 		        		<hr>
-		        		<h6><b class="conttitle"><i>TOTAL</i></b>&nbsp;&nbsp;<span class="size">Php 123.00</span></h6>
+		        		
 		        </div>
-		    	<center><a href="about.php"><button class="buttonstyle">PLACE ORDER</button></a></center>
+		    	<center><a href="about.php"><button class="buttonstyle">Remove Products</button></a></center>
 	        </div>
-
-	        <div class="story">
-		    	<div class="twocont box1"><center><img src="img/tall.jpg" width="100%;"></center></div>
-
-		    	<div class="twocont box1">
-		        		<h6><b class="conttitle"><b class="size">Product Name</b></h6>
-		        		<hr>
-		        		<h6><b class="conttitle"><i>Price</i></b>&nbsp;&nbsp;<span class="size">Php 123.00</span></h6>
-		        		<h6><b class="conttitle"><i>Quanity</i></b>&nbsp;&nbsp;<span class="size">1</span></h6>
-		        		<h6><b class="conttitle"><i>Subtotal</i></b>&nbsp;&nbsp;<span class="size">Php 123.00</span></h6>
-		        		<hr>
-		        		<h6><b class="conttitle"><i>TOTAL</i></b>&nbsp;&nbsp;<span class="size">Php 123.00</span></h6>
-		        </div>
-		    	<center><a href="about.php"><button class="buttonstyle">PLACE ORDER</button></a></center>
-	        </div>
+			<?php
+				$sub += $total;
+				}
+			}
+			?>
 	    	</div>
+			<h6 ><b  style="color:white;"><i>TOTAL</i></b>&nbsp;&nbsp;<span class="size"  style="color:white;">Php <?php echo $sub ?></span></h6>
 		</div>
+		
 	</div>
 
 
@@ -180,3 +204,14 @@
 </body>
 </html>
 <?php include("footer.php");?>
+<?php
+if(isset($_POST['submitorder'])){
+	if(empty($_SESSION['product'])){
+		echo "<script>alert('Your Cart is empty');</script>";
+	}
+	else{
+		$_SESSION['paymentAck'] = 'BANK_DEPOSIT';
+		echo "<script>window.location.replace('payment/bank.php')</script>";
+	}
+}
+?>

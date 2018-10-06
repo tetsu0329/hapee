@@ -187,12 +187,18 @@
 		        </div>
 
 		        <div class="twocont view">
+				<?php 
+				$id = $rows11['id'];
+				?>
+				<form action="checkout.php?Checkout=<?php echo $id ?>" method="POST">
+      			<input type="hidden" value="<?php echo $id ?>" name='id'>	
 		        	<h6 style="color: #fff; font-size: 25px">Php <?php echo $rows11['prodprice'] ?></h6>
 		        	<p class="subtitlelight">&nbsp;&nbsp;<b>Product weight:</b>&nbsp;<?php echo $rows11['prodweight'] ?></p>
 					<p class="subtitlelight">&nbsp;&nbsp;<b>Available Quantity :</b>&nbsp;<?php echo $rows11['prodquantity'] ?></p>
 		        	<p class="subtitlelight">&nbsp;&nbsp;<b>Quantity:</b>&nbsp;<input type="number" name="quantity" placeholder="0"></p>
 		        	<br>
-		        	<button class="buttonstyle">ADD TO CART</button>
+		        	<input type="submit" class="buttonstyle" value="ADD TO CART" name="addtocart">
+				</form>
 		        </div>
 			</div>
 		</div>
