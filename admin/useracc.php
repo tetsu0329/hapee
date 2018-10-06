@@ -88,7 +88,7 @@
 						      <div class="w3-container">
 						        <span onclick="document.getElementById('add').style.display='none'" class="w3-button w3-display-topright">&times;</span>
 						        <div class="w3-container">
-						        	<h5 class="title">&nbsp;Add User</h5>
+						        	<h5 class="title">&nbsp;Add User</h5><br>
 						        	<hr>
 						        	<div class="details">
 					        		<h6 class="titlesmall w3-center">&nbsp;<b style="color: #23a393;">Personal Information</b><br><br>
