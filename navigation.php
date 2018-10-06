@@ -84,9 +84,16 @@
 
 
 .user:hover{
-  background: #ceaea5 !important;
+  background: #edffed !important;
 }
 
+.logname:hover{
+  background: #edffed !important;
+}
+
+.logname:active{
+  background: pink !important;
+}
 .accordion {
     color: #fff;
     cursor: pointer;
@@ -130,9 +137,7 @@ a.panel:hover {
     <!-- Right-sided navbar links -->
     <div class="nav w3-right w3-hide-small">
       <a href="index.php" class="w3-bar-item w3-button">Home</a>
-      <a href=""><div class="dropdown">
-	    <button class="dropbtn">Products</button>
-	    </a>
+      <a href=""><div class="dropdown"><button class="dropbtn">Products</button></a>
 	    <div class="dropdown-content">
 	      <a href="products.php?Category=Chocolate">Chocolate</a>
 	      <a href="products.php?Category=Chips">Chips</a>
@@ -153,7 +158,14 @@ a.panel:hover {
             }
             else{
         ?>
-        <a href="#" class="w3-bar-item w3-button"><strong>Welcome!</strong> <?php echo $_SESSION['cname'] ?></a>
+<!--         <a href="#" class="w3-bar-item w3-button"><strong>Welcome!</strong> <?php echo $_SESSION['cname'] ?></a> -->
+       <div class="w3-dropdown-hover" style="margin-top: 9px;">
+      <button class="w3-button logname"><strong>Welcome!</strong> <?php echo $_SESSION['cname'] ?></button>
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="#" class="w3-bar-item w3-button">My Cart</a>
+        <a href="#" class="w3-bar-item w3-button">Logout</a>
+      </div>
+      </div>
         <?php
             }
         ?>
@@ -172,18 +184,33 @@ a.panel:hover {
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close Menu ×</a>
       <a href="index.php" class="w3-bar-item w3-button">Home</a>
       <a href="about.php" class="w3-bar-item w3-button">About Us</a>
-      <a href="products.php" class="w3-bar-item w3-button w3-padding accordion links">&nbsp; Products</a>
-    <div class="panel">
-        <a href="?Category=Chocolate">Chocolate</a>
-	      <a href="?Category=Chips">Chips</a>
-	      <a href="?Category=Pastry">Pastry</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding links">See all</a>
-    </div>
+       <a href="#" class="w3-bar-item w3-button w3-padding accordion links">&nbsp;Products</a>
+        <div class="panel">
+          <a href="?Category=Chocolate" class="w3-bar-item w3-button w3-padding links">Chocolate</a>
+        <a href="?Category=Chips" class="w3-bar-item w3-button w3-padding links">Chips</a>
+        <a href="?Category=Pastry" class="w3-bar-item w3-button w3-padding links">Pastry</a>
+         <a href="#" class="w3-bar-item w3-button w3-padding links">See all</a>
+        </div>
       <a href="gallery.php" class="w3-bar-item w3-button">Gallery</a>
       <a href="contact.php" class="w3-bar-item w3-button">Contact Us</a>
       <hr>
+      <?php
+        if(empty($_SESSION['cname'])){
+    ?>
       <a href="login.php" class="w3-bar-item w3-button">Login</a>
-      <a href="register.php" class="w3-bar-item w3-button">Register Here</a>
+      <a href="register.php" class="w3-bar-item w3-button">Register</a>
+        <?php
+            }
+            else{
+        ?>
+      <a href="#" class="w3-bar-item w3-button w3-padding accordion links">&nbsp; <strong>Welcome!</strong> <?php echo $_SESSION['cname'] ?></a>
+        <div class="panel">
+          <a href="#" class="w3-bar-item w3-button w3-padding links">My Cart</a>
+          <a href="#" class="w3-bar-item w3-button w3-padding links">Logout</a>
+        </div>
+        <?php
+            }
+        ?>
 </nav>
 
 <script>
