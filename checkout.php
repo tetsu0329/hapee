@@ -13,6 +13,7 @@ if(isset($_GET['Checkout']))
 		$product[2] = $_POST['quantity'];
 		$product[3] = $queryhold['prodprice'];
 		$product[4] = $queryhold['prodname'];
+		$product[5] = $queryhold['prodimg'];
       }
       array_push($_SESSION['product'], $product);
       echo "<script>window.location = 'checkout.php'</script>";
@@ -25,6 +26,7 @@ if(isset($_GET['Checkout']))
 		$product[2] = $_POST['quantity'];
 		$product[3] = $queryhold['prodprice'];
 		$product[4] = $queryhold['prodname'];
+		$product[5] = $queryhold['prodimg'];
       }
       $_SESSION['product']=array($product);
       echo "<script>window.location = 'checkout.php'</script>";
@@ -166,7 +168,7 @@ if(isset($_GET['Checkout']))
 			?>
 
 	        <div class="story">
-		    	<div class="twocont box1"><center><img src="img/tall.jpg" width="100%;"></center></div>
+		    	<div class="twocont box1"><center><img src="<?php echo substr($_SESSION['product'][$row][5], 3) ?>" width="100%;"></center></div>
 
 		    	<div class="twocont box1">
 		        		<h6><b class="conttitle"><b class="size"><?php echo($_SESSION['product'][$row][4]) ?></b></h6>
