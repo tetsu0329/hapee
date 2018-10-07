@@ -195,7 +195,7 @@
 		        </div>
 		        <br><br>
 		        <div class="twocont">
-		        	<center><img src="img/tall.jpg" width="100%;"></center>
+		        	<center><img src="img/tall2.jpg" width="100%;"></center>
 		        </div>
 
 			</div>

@@ -178,7 +178,7 @@
 <!-- slider -->
 	<div class="slideshow-container">
 		<div class="mySlides fade">
-			<img src="img/tall.jpg" style="width:100% ">
+			<img src="img/tall2.jpg" style="width:100% ">
 		</div>
 		<!-- <div class="mySlides fade">
 			<img src="img/sample.jpg" style="width:100%">
