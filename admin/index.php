@@ -65,7 +65,7 @@
 			    <div class="w3-quarter">
 			      <div class="w3-container status a">
 			        <div class="w3-center">
-			          <h1 class="count">5</h1>
+			          <h1 class="count"><?php echo $ordercount ?></h1>
 			          <h4>ORDERS</h4>
 			        </div>
 			      </div>

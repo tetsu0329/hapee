@@ -129,7 +129,7 @@
 	        <div class=" story">
 	        	<center><img src="img/cropped.png" width="50%;"></center>
 		    	<p><input type="text" name="uname" placeholder="Email"></p>
-		    	<p><input type="text" name="pword" placeholder="Password"></p>
+		    	<p><input type="password" name="pword" placeholder="Password"></p>
 				<h6 id="incorrect" style="display:none">*Incorrect username or password</h6>
 		    	<br>
 		    	<center>

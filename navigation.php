@@ -162,8 +162,14 @@ a.panel:hover {
        <div class="w3-dropdown-hover" style="margin-top: 9px;">
       <button class="w3-button logname"><strong>Welcome!</strong> <?php echo $_SESSION['cname'] ?></button>
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">My Cart</a>
-        <a href="#" class="w3-bar-item w3-button">Logout</a>
+      <?php
+          if(isset($_SESSION['product'])){
+          ?>
+            <a href="checkout.php" class="w3-bar-item w3-button w3-padding links">My Cart</a>
+          <?php
+            }
+          ?>
+        <a href="logout.php" class="w3-bar-item w3-button">Logout</a>
       </div>
       </div>
         <?php
@@ -205,8 +211,14 @@ a.panel:hover {
         ?>
       <a href="#" class="w3-bar-item w3-button w3-padding accordion links">&nbsp; <strong>Welcome!</strong> <?php echo $_SESSION['cname'] ?></a>
         <div class="panel">
-          <a href="#" class="w3-bar-item w3-button w3-padding links">My Cart</a>
-          <a href="#" class="w3-bar-item w3-button w3-padding links">Logout</a>
+          <?php
+          if(isset($_SESSION['products'])){
+          ?>
+          <a href="checkout.php" class="w3-bar-item w3-button w3-padding links">My Cart</a>
+          <?php
+            }
+          ?>
+          <a href="logout.php" class="w3-bar-item w3-button w3-padding links">Logout</a>
         </div>
         <?php
             }

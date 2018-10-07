@@ -174,7 +174,7 @@ if(isset($_GET['Checkout']))
 		        		<h6><b class="conttitle"><b class="size"><?php echo($_SESSION['product'][$row][4]) ?></b></h6>
 		        		<hr>
 		        		<h6><b class="conttitle"><i>Price</i></b>&nbsp;&nbsp;<span class="size"><?php echo($_SESSION['product'][$row][3]) ?></span></h6>
-		        		<h6><b class="conttitle"><i>Quanity</i></b>&nbsp;&nbsp;<span class="size"><?php echo($_SESSION['product'][$row][2]) ?></span></h6>
+		        		<h6><b class="conttitle"><i>Quantity</i></b>&nbsp;&nbsp;<span class="size"><?php echo($_SESSION['product'][$row][2]) ?></span></h6>
 						<h6><b class="conttitle"><i>Subtotal</i></b>&nbsp;&nbsp;<span class="size">
 						<?php 
 							$total = $_SESSION['product'][$row][2] * $_SESSION['product'][$row][3]; 
@@ -184,7 +184,7 @@ if(isset($_GET['Checkout']))
 		        		<hr>
 		        		
 		        </div>
-		    	<center><a href="about.php"><button class="buttonstyle">Remove Products</button></a></center>
+		    	<center><a href="?ID=<?php echo $_SESSION['product'][$row][1] ?>"><button class="buttonstyle">Remove Products</button></a></center>
 	        </div>
 			<?php
 				$sub += $total;
@@ -194,6 +194,9 @@ if(isset($_GET['Checkout']))
 	    	</div>
 			<h6 ><b  style="color:white;"><i>TOTAL</i></b>&nbsp;&nbsp;<span class="size"  style="color:white;">Php <?php echo $sub ?></span></h6>
 		</div>
+		<form action="" method="POST">
+		<center><p><input type="submit" value="PLACE ORDER" name="submitorder" class="w3-button w3-brown mybtn"></p></center>
+		</form>
 		
 	</div>
 
@@ -216,4 +219,19 @@ if(isset($_POST['submitorder'])){
 		echo "<script>window.location.replace('payment/bank.php')</script>";
 	}
 }
+?>
+
+<?php
+	if(isset($_GET['ID'])){
+		$ProductID = $_GET['ID'];
+		$rowcount= count($_SESSION['product']);
+			for($row=0; $row<$rowcount; $row++)
+			{   
+				if(in_array($ProductID, $_SESSION['product'][$row])){
+				unset($_SESSION['product'][$row]);
+				}
+			}
+		$_SESSION['product']=array_values($_SESSION['product']);
+		echo "<script>window.location.replace('checkout.php')</script>";
+	}
 ?>

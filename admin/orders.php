@@ -124,115 +124,93 @@
 				
 				<table class="w3-table w3-bordered w3-hoverable">
 				<tr>
-				  <th class="name">Product Name</th>
-				  <th><center>Product Status</center></th>
+				  <th class="name">Transaction No</th>
+				  <th><center>Customer Name</center></th>
+				  <th><center>Order Date</center></th>
+				  <th><center>Total Amount</center></th>
 				  <th><center>Actions</center></th>
 				</tr>
+				<?php
+					$query = mysqli_query($conn, "SELECT * FROM transactiontable");
+					while($rows = mysqli_fetch_assoc($query)){
+						$id = $rows['userID'];
+						$query2 = mysqli_query($conn, "SELECT * FROM usertable where id = $id");
+						$rows2 = mysqli_fetch_assoc($query2);
+
+				?>
 				<tr>
-				  <td>Product name dummmmmyy</td>
-				  <td><center>Pending</center></td>
+				  <td>#<?php echo $rows['transactionID'] ?></td>
+				  <td><center><?php echo $rows2['fname']." ".$rows2['lname'] ?></center></td>
+				  <td><center><?php echo $rows['timestamp'] ?></center></td>
+				  <td><center><?php echo "Php ".$rows['totalAmount'] ?></center></td>
 				  <td><center>
-						<button onclick="document.getElementById('view').style.display='block'" class="w3-button buttonstyle"><img src="img/view.png" width="20px;"></button>
+						<a href="?ViewID=<?php echo $rows['transactionID'] ?>"><button class="w3-button buttonstyle"><img src="img/view.png" width="20px;"></button></a>
 						  <div id="view" class="w3-modal">
 						    <div class="w3-modal-content">
 						      <div class="w3-container">
 						        <span onclick="document.getElementById('view').style.display='none'" class="w3-button w3-display-topright">&times;</span>
 						        <h5 class="title w3-left">&nbsp;View Order</h5><br>
 						        <hr>
-
+								<?php
+									$idd = $_GET['ViewID'];
+									$query3 = mysqli_query($conn, "SELECT * FROM itemtransactiontable WHERE transactionID = $idd");
+									while($rows3 = mysqli_fetch_assoc($query3)){
+										$id3 = $rows3['productID'];
+										$query4 = mysqli_query($conn, "SELECT * FROM producttable where id = $id3");
+										$rows4 = mysqli_fetch_assoc($query4);
+								?>
 						        <div class="box">
 						        	<div class="twocont boxin">
 						        	 <img src="img/bg1.png" width="100%;">
 						       		</div>
 
 							        <div class="twocont boxin">
-							        	 <h6 class="titlesmall w3-left">Product Name</h6><br><br>
-							        	 <h6 class="titlesmall2 w3-left"><b>Price:</b>&nbsp;<span class="titlesmall">Php 123.00</span></h6><br><br>
-							        	 <h6 class="titlesmall2 w3-left"><b>Quantity:</b>&nbsp;<span class="titlesmall">1</span></h6><br><br>
-							        	 <h6 class="titlesmall2 w3-left"><b>Subtotal:</b>&nbsp;<span class="titlesmall">Php 123.00</span></h6><br><br>
+							        	 <h6 class="titlesmall w3-left"><?php echo $rows4['prodname'] ?></h6><br><br>
+							        	 <h6 class="titlesmall2 w3-left"><b>Price:</b>&nbsp;<span class="titlesmall"><?php echo "Php ".$rows4['prodprice'] ?></span></h6><br><br>
+							        	 <h6 class="titlesmall2 w3-left"><b>Quantity:</b>&nbsp;<span class="titlesmall"><?php echo $rows3['qty'] ?></span></h6><br><br>
+										 <h6 class="titlesmall2 w3-left"><b>Subtotal:</b>&nbsp;<span class="titlesmall">
+										 <?php
+										 $sub =  $rows4['prodprice'] * $rows3['qty'];
+										 echo "Php ".$sub;
+										 ?></span></h6><br><br>
 							        	 <hr>
-							        	 <h6 class="titlesmall2 w3-left"><b>TOTAL:</b>&nbsp;<span class="titlesmall">Php 123.00</span></h6>
 							        </div>
 						        </div>
-
+								
 						        <div style="border-bottom: 1px solid #23a393;">&nbsp;</div>
-
-						        <div class="box">
-						        	<div class="twocont boxin">
-						        	 <img src="img/bg1.png" width="100%;">
-						       		</div>
-
-							        <div class="twocont boxin">
-							        	 <h6 class="titlesmall w3-left">Product Name</h6><br><br>
-							        	 <h6 class="titlesmall2 w3-left"><b>Price:</b>&nbsp;<span class="titlesmall">Php 123.00</span></h6><br><br>
-							        	 <h6 class="titlesmall2 w3-left"><b>Quantity:</b>&nbsp;<span class="titlesmall">1</span></h6><br><br>
-							        	 <h6 class="titlesmall2 w3-left"><b>Subtotal:</b>&nbsp;<span class="titlesmall">Php 123.00</span></h6><br><br>
-							        	 <hr>
-							        	 <h6 class="titlesmall2 w3-left"><b>TOTAL:</b>&nbsp;<span class="titlesmall">Php 123.00</span></h6>
-							        </div>
-						        </div><div style="border-bottom: 1px solid #23a393;">&nbsp;</div>
-
+								<?php
+									}
+								?>
+								<h6 class="titlesmall2 w3-left"><b>TOTAL:</b>&nbsp;<span class="titlesmall"><?php echo "Php ".$rows['totalAmount'] ?></span></h6>
 						      </div>
 						    </div>
 						  </div>
 				
-						<button class="w3-button buttonstyle"><img src="img/delete.png" width="20px;"></button>
+						<!-- <button class="w3-button buttonstyle"><img src="img/delete.png" width="20px;"></button> -->
 						 </center></td>
 				</tr>
-
-				<tr>
-				  <td>Product name dummmmmyy</td>
-				  <td><center>Pending</center></td>
-				  <td><center>
-						<button onclick="document.getElementById('view').style.display='block'" class="w3-button buttonstyle"><img src="img/view.png" width="20px;"></button>
-						  <div id="view" class="w3-modal">
-						    <div class="w3-modal-content">
-						      <div class="w3-container">
-						        <span onclick="document.getElementById('view').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-						        <h5 class="title w3-left">&nbsp;View Order</h5><br>
-						        <hr>
-
-						        <div class="box">
-						        	<div class="twocont boxin">
-						        	 <img src="img/bg1.png" width="100%;">
-						       		</div>
-
-							        <div class="twocont boxin">
-							        	 <h6 class="titlesmall w3-left">Product Name</h6><br><br>
-							        	 <h6 class="titlesmall2 w3-left"><b>Price:</b>&nbsp;<span class="titlesmall">Php 123.00</span></h6><br><br>
-							        	 <h6 class="titlesmall2 w3-left"><b>Quantity:</b>&nbsp;<span class="titlesmall">1</span></h6><br><br>
-							        	 <h6 class="titlesmall2 w3-left"><b>Subtotal:</b>&nbsp;<span class="titlesmall">Php 123.00</span></h6><br><br>
-							        	 <hr>
-							        	 <h6 class="titlesmall2 w3-left"><b>TOTAL:</b>&nbsp;<span class="titlesmall">Php 123.00</span></h6>
-							        </div>
-						        </div>
-
-						        <div style="border-bottom: 1px solid #23a393;">&nbsp;</div>
-
-						        <div class="box">
-						        	<div class="twocont boxin">
-						        	 <img src="img/bg1.png" width="100%;">
-						       		</div>
-
-							        <div class="twocont boxin">
-							        	 <h6 class="titlesmall w3-left">Product Name</h6><br><br>
-							        	 <h6 class="titlesmall2 w3-left"><b>Price:</b>&nbsp;<span class="titlesmall">Php 123.00</span></h6><br><br>
-							        	 <h6 class="titlesmall2 w3-left"><b>Quantity:</b>&nbsp;<span class="titlesmall">1</span></h6><br><br>
-							        	 <h6 class="titlesmall2 w3-left"><b>Subtotal:</b>&nbsp;<span class="titlesmall">Php 123.00</span></h6><br><br>
-							        	 <hr>
-							        	 <h6 class="titlesmall2 w3-left"><b>TOTAL:</b>&nbsp;<span class="titlesmall">Php 123.00</span></h6>
-							        </div>
-						        </div><div style="border-bottom: 1px solid #23a393;">&nbsp;</div>
-
-						      </div>
-						    </div>
-						  </div>
-				
-						<button class="w3-button buttonstyle"><img src="img/delete.png" width="20px;"></button>
-						 </center></td>
-				</tr>
+				<?php
+					}
+				?>
 				</table>
 				</div>
 		</div>
 </body>
 </html>
+<?php
+echo "<script> var view_modal = document.getElementById('view'); </script>";
+	if(isset($_GET['ViewID'])){
+		$idd = $_GET['ViewID'];
+		echo "<script> view_modal.style.display = 'block' </script>";
+	}
+	
+?>
+<script>
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+			
+			if (event.target == view_modal) {
+			view_modal.style.display = "none";
+			}
+		}
+</script>
